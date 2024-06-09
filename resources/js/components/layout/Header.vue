@@ -45,7 +45,7 @@ export default {
         },
     },
     mounted() {
-        console.log(this.$route.path)
+
         axios.get('/api/navs/header/tree')
             .then(response => {
                 this.pages = response.data.data;

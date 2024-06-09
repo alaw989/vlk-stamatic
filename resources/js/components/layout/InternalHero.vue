@@ -1,32 +1,61 @@
 <template>
     <div class="h-[40vh] justify-center relative flex w-full">
-        <div class="bg-white w-[50%] absolute h-full flex left-0 z-0 pl-[4rem]">
-            <!-- Your content inside this div if needed -->
+
+        <div class="w-full max-w-[100%] flex items-center h-full relative z-10">
+            <!-- Use currentPage.image as the background image URL -->
+            <div class="w-1/2">
+                <h1 class="text-4xl text-center" v-if="currentPage">{{ currentPage.title }}</h1>
+            </div>
+
+            <div class="image absolute h-full w-1/2 bg-cover bg-center right-0"
+                 v-if="currentPage"
+                 :style="{
+                     backgroundImage: 'url(' +
+                         (currentPage.assets_field && currentPage.assets_field.length > 0
+                             ? currentPage.assets_field[0].url
+                             : images[selectedHomeIndex]) +
+                         ')'
+                 }"></div>
         </div>
-        <div class="w-full max-w-[75%] flex items-center h-full relative z-10">
-            <h1 class="text-4xl">Flexible Workspace Solutions</h1>
-        </div>
-        <div class="image absolute h-full w-1/2 bg-cover bg-center right-0"
-             :style="{ backgroundImage: 'url(' + images[selectedHomeIndex] + ')' }"></div>
     </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
-    name: "Internal",
+    name: "InternalHero",
     data() {
         return {
             images: [
                 '/images/office-1.jpg',
             ],
-            selectedHomeIndex: 0 // To keep track of the selected index
+            selectedHomeIndex: 0,
+            currentPage: null // Initialize currentPage as null
         }
     },
     mounted() {
-        console.log(this.$route);
+        this.fetchPage(); // Fetch the page data when the component mounts
+    },
+    watch: {
+        '$route.path': 'fetchPage' // Watch for route changes and call fetchPage method
+    },
+    methods: {
+        fetchPage() {
+            axios.get('/api/collections/pages/entries/')
+                .then(response => {
+                    const pages = response.data.data;
+                    this.currentPage = pages.find(page => page.uri === this.$route.path) || null;
+                    console.log('current page', this.currentPage);
+                })
+                .catch(error => {
+                    console.error('Error fetching pages', error);
+                });
+        }
     }
 }
 </script>
+
 
 <style scoped>
 </style>

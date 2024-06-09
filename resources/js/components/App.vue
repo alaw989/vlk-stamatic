@@ -5,40 +5,36 @@
 </template>
 
 <script>
-
-import axios from "axios";
+import { RouterView } from 'vue-router';
+import axios from 'axios';
 
 export default {
-    components: {},
+    components: {
+        RouterView
+    },
     data() {
         return {
             home: '',
             pages: '',
-        }
+        };
     },
     mounted() {
         axios.get('/api/navs/header/tree')
             .then(response => {
-                this.pages = response.data.data
+                this.pages = response.data.data;
 
                 // Find the page with slug '/'
-                const homepage = this.pages.find(page => page.page.uri === '/')
-
-                // this.pages.find(page => console.log(page.page.uri))
+                const homepage = this.pages.find(page => page.page.uri === '/');
 
                 if (homepage) {
-                    this.home = homepage
+                    this.home = homepage;
                 }
-
             })
             .catch(error => {
-                console.error('Error ', error);
+                console.error('Error fetching navigation data', error);
             });
-    },
-    methods: {
-
     }
-}
+};
 </script>
 
 <style scoped>
