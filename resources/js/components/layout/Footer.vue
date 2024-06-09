@@ -19,17 +19,13 @@
                     <li class="mr-6">
                         <ul class="text-[#fff] flex flex-col">
                             <li class="mb-6 font-bold">VibeLinkRaft</li>
-                            <li class="mb-6">
-                                <a href="/about" class="cursor-pointer hover:underline">About</a>
-                            </li>
-                            <li class="mb-6">
-                                <a href="/about" class="cursor-pointer hover:underline">FAQ's</a>
-                            </li>
-                            <li class="mb-6">
-                                <a href="/about" class="cursor-pointer hover:underline">Team</a>
-                            </li>
-                            <li class="mb-6">
-                                <a href="/about" class="cursor-pointer hover:underline">Blog</a>
+                            <li class="text-white cursor-pointer mb-6" v-for="(menu, menuIndex) in menuItems" :key="menuIndex">
+                                <!-- Use router-link instead of anchor tag -->
+                                <RouterLink :to="menu.page.uri"
+                                            :class="{ 'text-black': hover && $route.path === '/' }"
+                                            class="hidden xl:flex mx-2 2xl:mx-4">
+                                    {{ menu.page.title }}
+                                </RouterLink>
                             </li>
                         </ul>
                     </li>
@@ -130,21 +126,26 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
     name: "Footer",
-    props: {
-        pages: {
-            type: Array,
-            required: true
-        }
-    },
+
     data() {
         return {
             imageUrl: '/images/logo-white.png',
+            menuItems: []
         }
     },
     mounted() {
-
+        axios.get('/api/navs/footer/tree')
+            .then(response => {
+                this.menuItems = response.data.data;
+                console.log('menu items', this.menuItems)
+            })
+            .catch(error => {
+                console.error('Error fetching header navigation:', error);
+            });
     }
 }
 </script>

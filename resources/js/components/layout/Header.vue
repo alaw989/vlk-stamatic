@@ -45,7 +45,6 @@ export default {
         },
     },
     mounted() {
-
         axios.get('/api/navs/header/tree')
             .then(response => {
                 this.pages = response.data.data;
