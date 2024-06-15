@@ -6,6 +6,12 @@ tabs:
       -
         fields:
           -
+            handle: is_homepage
+            field:
+              type: toggle
+              display: 'Is Homepage'
+              instructions: 'Check this if the page is the homepage.'
+          -
             handle: title
             field:
               type: text
@@ -37,7 +43,45 @@ tabs:
             field:
               container: assets
               type: assets
-              display: 'Assets Field'
+              display: 'Banner'
+          -
+            handle: content_replicator
+            field:
+              type: replicator
+              display: 'Info Square Repeater'
+              instructions: 'Add sets of text, link, textarea, and image fields.'
+              sets:
+                content_set:
+                  display: 'Content Set'
+                  fields:
+                    -
+                      handle: text
+                      field:
+                        type: text
+                        display: 'Text Field'
+                        localizable: true
+                    -
+                      handle: link
+                      field:
+                        type: link
+                        display: 'Link Field'
+                        localizable: true
+                    -
+                      handle: textarea
+                      field:
+                        type: textarea
+                        display: 'Text Area Field'
+                        localizable: true
+                    -
+                      handle: image
+                      field:
+                        type: assets
+                        container: assets
+                        display: 'Image'
+                        max_files: 1
+                        localizable: true
+              if:
+                is_homepage: true
   sidebar:
     display: Sidebar
     sections:

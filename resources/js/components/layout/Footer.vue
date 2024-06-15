@@ -141,7 +141,6 @@ export default {
         axios.get('/api/navs/footer/tree')
             .then(response => {
                 this.menuItems = response.data.data;
-                console.log('menu items', this.menuItems)
             })
             .catch(error => {
                 console.error('Error fetching header navigation:', error);

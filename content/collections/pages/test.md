@@ -4,8 +4,9 @@ blueprint: page
 title: Contact
 author: 3cde8979-9e2c-4235-8275-1b6545aee897
 updated_by: 3cde8979-9e2c-4235-8275-1b6545aee897
-updated_at: 1717963290
+updated_at: 1718460640
 parent: home
 template: layout
+is_homepage: false
 ---
 test
