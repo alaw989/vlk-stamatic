@@ -11,6 +11,11 @@ tabs:
               type: toggle
               display: 'Is Homepage'
               instructions: 'Check this if the page is the homepage.'
+          - handle: template
+            field:
+              type: template
+              display: Template
+              localizable: true
           -
             handle: title
             field:
@@ -18,6 +23,12 @@ tabs:
               required: true
               validate:
                 - required
+
+          - handle: assets_field
+            field:
+              container: assets
+              type: assets
+              display: 'Banner'
           -
             handle: content
             field:
@@ -25,25 +36,39 @@ tabs:
               display: Content
               localizable: true
           -
-            handle: author
+            handle: hero_squares
             field:
-              type: users
-              display: Author
-              default: current
-              localizable: true
-              max_items: 1
-          -
-            handle: template
-            field:
-              type: template
-              display: Template
-              localizable: true
-          -
-            handle: assets_field
-            field:
-              container: assets
-              type: assets
-              display: 'Banner'
+              type: grid
+              display: 'Hero Squares'
+              instructions: 'Add up to 3 rows with a title, body, link, and button text.'
+              max_rows: 3
+              fields:
+                -
+                  handle: title
+                  field:
+                    type: text
+                    display: 'Title'
+                    localizable: true
+                -
+                  handle: body
+                  field:
+                    type: textarea
+                    display: 'Body'
+                    localizable: true
+                -
+                  handle: link
+                  field:
+                    type: link
+                    display: 'Link'
+                    localizable: true
+                -
+                  handle: button_text
+                  field:
+                    type: text
+                    display: 'Button Text'
+                    localizable: true
+              if:
+                is_homepage: true
           -
             handle: content_replicator
             field:

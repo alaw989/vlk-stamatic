@@ -1,20 +1,20 @@
 <template>
     <div>
-        <div className="relative h-dvh">
+        <div class="relative h-dvh">
             <Header/>
-            <Hero/>
+            <Hero :home="page"/>
         </div>
-        <div className="relative my-[6rem]">
+        <div class="relative my-[6rem]">
             <FiftyFifty/>
         </div>
-        <div className="relative my-[6rem]">
+        <div class="relative my-[6rem]">
             <BgParagraph/>
         </div>
-        <div className="relative my-[6rem]">
+        <div class="relative my-[6rem]">
             <!-- Pass the page data as a prop to InfoSquares -->
             <InfoSquares :home="page"/>
         </div>
-        <div className="relative mt-[6rem] ">
+        <div class="relative mt-[6rem] ">
             <!-- Pass the pages data as a prop to Footer if needed -->
             <Footer :pages="page"/>
         </div>
