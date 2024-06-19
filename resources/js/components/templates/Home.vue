@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="relative h-dvh">
-            <Header/>
+            <Header :globals="globals"/>
             <Hero :home="page"/>
         </div>
         <div class="relative my-[6rem]">
@@ -11,12 +11,10 @@
             <BgParagraph/>
         </div>
         <div class="relative my-[6rem]">
-            <!-- Pass the page data as a prop to InfoSquares -->
             <InfoSquares :home="page"/>
         </div>
         <div class="relative mt-[6rem] ">
-            <!-- Pass the pages data as a prop to Footer if needed -->
-            <Footer :pages="page"/>
+            <Footer :pages="page" :globals="globals"/>
         </div>
     </div>
 </template>
@@ -42,7 +40,8 @@ export default {
     },
     data() {
         return {
-            page: null // Initialize currentPage to null
+            page: null, // Initialize currentPage to null
+            globals: null
         };
     },
     mounted() {
@@ -53,6 +52,14 @@ export default {
             .catch(error => {
                 console.error('Error fetching page', error);
             });
+
+        axios.get('/api/globals')
+            .then(response => {
+                this.globals = response.data.data
+            })
+            .catch(error => {
+                console.error('Error fetching globals', error);
+            })
     }
 }
 </script>

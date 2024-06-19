@@ -34,11 +34,13 @@ export default {
         return {
             pages: [],
             hover: false,
+            imageUrl: '',
+            whiteImageUrl: '',
         };
     },
     computed: {
         imageUrl() {
-            return this.$route.path === '/' ? '/images/vibelinkraft.png' : '/images/logo-white.png';
+            return this.$route.path === '/' ? this.imageUrl : this.imageUrl;
         },
         headerColor() {
             return this.$route.path === '/' ? 'transparent' : '#25375E';
@@ -51,6 +53,19 @@ export default {
             })
             .catch(error => {
                 console.error('Error fetching header navigation:', error);
+            });
+
+        axios.get('/api/globals')
+            .then(response => {
+                const companyData = response.data.data.find(item => item.handle === 'company');
+
+                if (companyData && companyData.logo) {
+                    this.imageUrl = companyData.logo.url
+                }
+
+            })
+            .catch(error => {
+                console.error('Error fetching globals', error);
             });
     },
 };

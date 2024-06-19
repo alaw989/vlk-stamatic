@@ -10,11 +10,17 @@ tabs:
               container: assets
               type: assets
               display: Logo
+              max_files: 1
           -
-            handle: replicator_field
+            handle: textarea_field
+            field:
+              type: textarea
+              display: 'Address'
+          -
+            handle: social_media_icons
             field:
               type: replicator
-              display: 'Replicator Field'
+              display: 'Social Media'
               sets:
                 new_set_group:
                   display: 'New Set Group'
@@ -32,3 +38,9 @@ tabs:
                           field:
                             type: link
                             display: Link
+                        -
+                          handle: code
+                          field:
+                            type: code
+                            display: SVG Icon
+

@@ -5,7 +5,7 @@ title: 'Welcome to VibeLinKraft!'
 template: home
 author: 3cde8979-9e2c-4235-8275-1b6545aee897
 updated_by: 3cde8979-9e2c-4235-8275-1b6545aee897
-updated_at: 1718587591
+updated_at: 1718820511
 is_homepage: true
 content_replicator:
   -
@@ -65,6 +65,6 @@ hero_squares:
     body: 'Elevate your skills with our comprehensive suite of services, including networking events, educational classes, self-taping auditions, photo studio and editing bay rentals, the ultimate Pre-production HQ, and social media edits and commercials.'
     button_text: 'Learn More'
 assets_field:
-  - home.mp4
+  - home-page-background.png
 ---
 Welcome to our bustling Post Production House, where projects of all sizes—from indie gems to blockbuster hits—come to life in vibrant detail. Join us in the heart of creativity, where every idea has the potential to transform into cinematic brilliance. Need social media edits or captivating commercials? We've got you covered.
