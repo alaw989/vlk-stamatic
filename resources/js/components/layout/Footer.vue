@@ -126,7 +126,6 @@ export default {
 
                 if (companyData && companyData.logo) {
                     this.imageUrl = companyData.logo.url
-                    console.log('logo', this.imageUrl)
                 }
 
             })
@@ -137,6 +136,3 @@ export default {
 };
 </script>
 
-<style scoped>
-/* Add any necessary scoped styles here */
-</style>

@@ -11,11 +11,6 @@ tabs:
               type: toggle
               display: 'Is Homepage'
               instructions: 'Check this if the page is the homepage.'
-          - handle: template
-            field:
-              type: template
-              display: Template
-              localizable: true
           -
             handle: title
             field:
@@ -23,43 +18,93 @@ tabs:
               required: true
               validate:
                 - required
-
-          - handle: assets_field
+          -
+            handle: assets_field
             field:
               container: assets
               type: assets
-              display: 'Banner'
+              display: Banner
           -
             handle: content
             field:
               type: markdown
               display: Content
               localizable: true
+              heading_anchors: true
+          -
+            handle: fifty_fifty_repeater
+            field:
+              type: replicator
+              display: 'Fifty Fifty Repeater'
+              instructions: 'Add sets of text, link, textarea, and image fields.'
+              if:
+                is_homepage: 'equals true'
+              sets:
+                main:
+                  display: Main
+                  sets:
+                    content_set:
+                      display: 'Content Set'
+                      fields:
+                        -
+                          handle: text
+                          field:
+                            type: text
+                            display: 'Text Field'
+                            localizable: true
+                        -
+                          handle: link_text
+                          field:
+                            type: text
+                            display: 'Link Text'
+                        -
+                          handle: link
+                          field:
+                            type: link
+                            display: 'Link Field'
+                            localizable: true
+                        -
+                          handle: textarea
+                          field:
+                            type: textarea
+                            display: 'Text Area Field'
+                            localizable: true
+                        -
+                          handle: image
+                          field:
+                            type: assets
+                            container: assets
+                            display: Image
+                            max_files: 1
+                            localizable: true
           -
             handle: hero_squares
             field:
               type: grid
               display: 'Hero Squares'
               instructions: 'Add up to 3 rows with a title, body, link, and button text.'
-              max_rows: 3
+              max_rows: 4
+              mode: stacked
+              if:
+                is_homepage: 'equals true'
               fields:
                 -
                   handle: title
                   field:
                     type: text
-                    display: 'Title'
+                    display: Title
                     localizable: true
                 -
                   handle: body
                   field:
                     type: textarea
-                    display: 'Body'
+                    display: Body
                     localizable: true
                 -
                   handle: link
                   field:
                     type: link
-                    display: 'Link'
+                    display: Link
                     localizable: true
                 -
                   handle: button_text
@@ -67,14 +112,49 @@ tabs:
                     type: text
                     display: 'Button Text'
                     localizable: true
+          -
+            handle: paragraph_section_1
+            field:
+              type: group
+              display: 'Paragraph Section 1'
               if:
-                is_homepage: true
+                is_homepage: 'equals true'
+              fields:
+                -
+                  handle: heading
+                  field:
+                    type: text
+                    display: Heading
+                -
+                  handle: body
+                  field:
+                    type: textarea
+                    display: Body
+                -
+                  handle: background_image
+                  field:
+                    max_files: 1
+                    container: assets
+                    type: assets
+                    display: 'Background Image'
+                -
+                  handle: link_text
+                  field:
+                    type: text
+                    display: 'Link Text'
+                -
+                  handle: link_url
+                  field:
+                    type: link
+                    display: 'Link URL'
           -
             handle: content_replicator
             field:
               type: replicator
               display: 'Info Square Repeater'
               instructions: 'Add sets of text, link, textarea, and image fields.'
+              if:
+                is_homepage: true
               sets:
                 content_set:
                   display: 'Content Set'
@@ -102,11 +182,44 @@ tabs:
                       field:
                         type: assets
                         container: assets
-                        display: 'Image'
+                        display: Image
                         max_files: 1
                         localizable: true
+          -
+            handle: paragraph_section_2
+            field:
+              type: group
+              display: 'Paragraph Section 2'
               if:
-                is_homepage: true
+                is_homepage: 'equals true'
+              fields:
+                -
+                  handle: heading
+                  field:
+                    type: text
+                    display: Heading
+                -
+                  handle: body
+                  field:
+                    type: textarea
+                    display: Body
+                -
+                  handle: background_image
+                  field:
+                    max_files: 1
+                    container: assets
+                    type: assets
+                    display: 'Background Image'
+                -
+                  handle: link_text
+                  field:
+                    type: text
+                    display: 'Link Text'
+                -
+                  handle: link_url
+                  field:
+                    type: link
+                    display: 'Link URL'
   sidebar:
     display: Sidebar
     sections:

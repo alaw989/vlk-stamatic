@@ -1,13 +1,9 @@
 <template>
-    <div class="h-[40vh] justify-center relative flex w-full">
-
+    <div class="h-[50vh] justify-center relative flex w-full">
         <div class="w-full max-w-[100%] flex items-center h-full relative z-10">
             <!-- Use currentPage.image as the background image URL -->
-            <div class="w-1/2">
-                <h1 class="text-4xl text-center" v-if="currentPage">{{ currentPage.title }}</h1>
-            </div>
 
-            <div class="image absolute h-full w-1/2 bg-cover bg-center right-0"
+            <div class="image absolute h-full w-full bg-cover bg-center right-0 flex"
                  v-if="currentPage"
                  :style="{
                      backgroundImage: 'url(' +
@@ -15,7 +11,12 @@
                              ? currentPage.assets_field[0].url
                              : images[selectedHomeIndex]) +
                          ')'
-                 }"></div>
+                 }">
+
+                    <h1 class="text-left pl-[100px] pr-[40px] text-white flex items-center" v-if="currentPage">
+                        {{ currentPage.title }}</h1>
+
+            </div>
         </div>
     </div>
 </template>
@@ -46,7 +47,6 @@ export default {
                 .then(response => {
                     const pages = response.data.data;
                     this.currentPage = pages.find(page => page.uri === this.$route.path) || null;
-                    console.log('current page', this.currentPage);
                 })
                 .catch(error => {
                     console.error('Error fetching pages', error);

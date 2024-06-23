@@ -3,3 +3,119 @@
 @import "tailwindcss/utilities";
 
 /* This is all you. */
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #222;
+}
+
+h1 {
+    font-size: 2.5rem; /* 40px */
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+h2 {
+    font-size: 2rem; /* 32px */
+    margin-bottom: 1.25rem;
+    width: 100%;
+}
+
+h3 {
+    font-size: 1.75rem; /* 28px */
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+h4 {
+    font-size: 1.5rem; /* 24px */
+    margin-bottom: 0.75rem;
+    width: 100%;
+}
+
+h5 {
+    font-size: 1.15rem;
+    margin-bottom: 0.50rem;
+    width: 100%;
+}
+
+/* Paragraph */
+p {
+    margin: 0 0 1.5rem 0;
+    font-size: 1rem; /* 16px */
+    width: 100%;
+}
+
+/* Links */
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Lists */
+ul, ol {
+    margin: 0 0 1.5rem 0rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Blockquotes */
+blockquote {
+    margin: 0 0 1.5rem 0;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-left: 5px solid #ccc;
+    font-style: italic;
+}
+
+/* Code */
+code {
+    background-color: #f5f5f5;
+    padding: 0.2rem 0.4rem;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.25rem;
+    }
+
+    h5 {
+        font-size: 1.15rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+}

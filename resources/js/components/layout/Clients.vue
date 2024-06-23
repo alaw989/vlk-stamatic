@@ -1,16 +1,17 @@
 <template>
-    <div v-if="home" class="parallax-container relative">
+
+    <div class="parallax-container relative">
         <!-- Dark overlay -->
         <div class="dark-overlay absolute inset-0"></div>
         <!-- Background image -->
-        <div class="parallax-background absolute" :style="parallaxBackgroundStyle"></div>
+        <div class="parallax-background absolute"></div>
         <!-- Content -->
         <div class="content-container absolute w-full">
             <div class="w-full flex justify-center absolute">
                 <div class="flex justify-center flex-col items-center text-center w-full max-w-[75%]">
-                    <h1 v-html="home.paragraph_section_1?.heading" class="text-4xl text-white font-bold mb-4"></h1>
-                    <p class="text-white text-center max-w-[800px]" v-html="home.paragraph_section_1?.body"></p>
-                    <router-link :to="home.paragraph_section_1.link_url" v-if="home.paragraph_section_1.link_url">
+                    <h1 class="text-4xl text-white font-bold mb-4"></h1>
+                    <p class="text-white text-center max-w-[800px]"></p>
+                    <router-link :to="'/'">
                         <button class="text-white text-md lg:text-lg px-4 py-2 mt-6 rounded-full bg-[#3eb488]">
                             Learn More
                         </button>
@@ -23,19 +24,14 @@
 
 <script>
 export default {
-    name: "BgParagraph",
-    props: {
-        home: {
-            type: Object,
-            required: true
-        }
-    },
+    name: "Clients",
+    props: {},
     computed: {
-        parallaxBackgroundStyle() {
-            return {
-                backgroundImage: `url(${this.home.paragraph_section_1?.background_image?.url})`
-            };
-        }
+        // parallaxBackgroundStyle() {
+        //     return {
+        //         backgroundImage: `url(${this.home.paragraph_section_1?.background_image?.url})`
+        //     };
+        // }
     },
     mounted() {
         console.log('home', this.home);

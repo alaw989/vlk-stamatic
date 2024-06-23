@@ -5,13 +5,16 @@
             <Hero :home="page"/>
         </div>
         <div class="relative my-[6rem]">
-            <FiftyFifty/>
+            <FiftyFifty :home="page"/>
         </div>
         <div class="relative my-[6rem]">
-            <BgParagraph/>
+            <BgParagraph :home="page"/>
         </div>
         <div class="relative my-[6rem]">
             <InfoSquares :home="page"/>
+        </div>
+        <div class="relative my-[6rem]">
+            <BgParagraph2 :home="page"/>
         </div>
         <div class="relative mt-[6rem] ">
             <Footer :pages="page" :globals="globals"/>
@@ -24,6 +27,7 @@ import Header from "../layout/Header.vue";
 import Hero from "../home/Hero.vue";
 import FiftyFifty from "../home/FiftyFifty.vue";
 import BgParagraph from "../home/BgParagraph.vue";
+import BgParagraph2 from "../home/BgParagraph2.vue";
 import InfoSquares from "../home/InfoSquares.vue";
 import Footer from "../layout/Footer.vue";
 import axios from "axios";
@@ -35,6 +39,7 @@ export default {
         Hero,
         FiftyFifty,
         BgParagraph,
+        BgParagraph2,
         InfoSquares,
         Footer
     },

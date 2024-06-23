@@ -23,7 +23,7 @@
 
 <script>
 export default {
-    name: "BgParagraph",
+    name: "Testimonials",
     props: {
         home: {
             type: Object,

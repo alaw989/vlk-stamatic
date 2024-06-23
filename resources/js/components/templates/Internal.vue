@@ -5,10 +5,11 @@
         <InternalHero v-if="currentPage && $route.path !== '/contact'" :currentPage="currentPage"/>
         <Contact v-if="$route.path === '/contact'"></Contact>
         <div class="my-[6rem] justify-center relative flex w-full">
-            <div class="w-full max-w-[75%] flex items-center h-full relative z-10" v-if="currentPage"
+            <div class="w-full max-w-[75%] flex items-center h-full relative z-10 flex-col" v-if="currentPage"
                  v-html="currentPage.content">
             </div>
         </div>
+        <Clients />
         <Footer :pages="pages"/>
     </div>
 </template>
@@ -16,12 +17,14 @@
 <script>
 import Header from "../layout/Header.vue";
 import Footer from "../layout/Footer.vue";
+import Clients from "../layout/Clients.vue"
 import Contact from "./Contact.vue";
 import InternalHero from "../layout/InternalHero.vue";
 import axios from "axios";
 
 export default {
     components: {
+        Clients,
         Header,
         Footer,
         Contact,
