@@ -5,7 +5,7 @@ title: 'Where Creativity Meets Community'
 template: home
 author: 3cde8979-9e2c-4235-8275-1b6545aee897
 updated_by: 3cde8979-9e2c-4235-8275-1b6545aee897
-updated_at: 1719159929
+updated_at: 1719685612
 is_homepage: true
 content_replicator:
   -
@@ -88,6 +88,40 @@ paragraph_section_2:
   background_image: about-page-background.jpg
   link_text: 'Learn More'
   link_url: 'entry::961a9ecd-8411-4eb0-8059-4f727132fa08'
+clients:
+  heading: 'Our Clients'
+  replicator_field:
+    -
+      id: ly0cesx6
+      assets_field: logos/clients/amazon-com-amazon-video-logo-company-brand-amazon-logo-3cab5e05d2d442950141b0b3dcc99980.png
+      link_field: 'entry::961a9ecd-8411-4eb0-8059-4f727132fa08'
+      type: new_set
+      enabled: true
+    -
+      id: ly0cf3x2
+      assets_field: logos/clients/royal-dutch-shell-logo-company-business-shell-27eaa25fab15530307cde3fd63948157.png
+      link_field: 'entry::a81ef8f4-074a-4772-91fc-50bbb01ad2b9'
+      type: new_set
+      enabled: true
+    -
+      id: ly0dcw2u
+      assets_field: logos/clients/amazon-com-amazon-video-logo-company-brand-amazon-logo-3cab5e05d2d442950141b0b3dcc99980.png
+      link_field: 'entry::a81ef8f4-074a-4772-91fc-50bbb01ad2b9'
+      type: new_set
+      enabled: true
+    -
+      id: ly0dcy5w
+      assets_field: logos/clients/royal-dutch-shell-logo-company-business-shell-27eaa25fab15530307cde3fd63948157.png
+      link_field: 'entry::a81ef8f4-074a-4772-91fc-50bbb01ad2b9'
+      type: new_set
+      enabled: true
+    -
+      id: ly0dcztg
+      assets_field: logos/clients/amazon-com-amazon-video-logo-company-brand-amazon-logo-3cab5e05d2d442950141b0b3dcc99980.png
+      link_field: 'entry::a81ef8f4-074a-4772-91fc-50bbb01ad2b9'
+      type: new_set
+      enabled: true
+  learn_more_link: 'entry::d0283a8b-b206-439a-857c-44267172cca0'
 ---
 Join a Vibrant Community of Filmmakers and Creatives. Access Exclusive Industry Classes, Inspiring Events, State-of-the-Art Studio Rentals, Professional  Tapings, and so much more!
 

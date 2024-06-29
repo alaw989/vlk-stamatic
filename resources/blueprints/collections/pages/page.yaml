@@ -220,6 +220,48 @@ tabs:
                   field:
                     type: link
                     display: 'Link URL'
+          -
+            handle: clients
+            field:
+              type: group
+              display: Clients
+              if:
+                is_homepage: 'equals true'
+              fields:
+                -
+                  handle: heading
+                  field:
+                    type: text
+                    display: Heading
+                -
+                  handle: replicator_field
+                  field:
+                    type: replicator
+                    display: 'Replicator Field'
+                    sets:
+                      new_set_group:
+                        display: 'New Set Group'
+                        sets:
+                          new_set:
+                            display: 'New Set'
+                            fields:
+                              -
+                                handle: assets_field
+                                field:
+                                  max_files: 1
+                                  container: assets
+                                  type: assets
+                                  display: 'Assets Field'
+                              -
+                                handle: link_field
+                                field:
+                                  type: link
+                                  display: 'Link Field'
+                -
+                  handle: learn_more_link
+                  field:
+                    type: link
+                    display: 'Learn More Link'
   sidebar:
     display: Sidebar
     sections:

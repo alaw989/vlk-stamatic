@@ -2,24 +2,29 @@
     <header class="flex justify-center py-4 z-1 z-10 relative"
             :style="{ backgroundColor: '#fff'  }"
             @mouseover="hover = true" @mouseleave="hover = false">
-        <div class="w-full max-w-[75%]">
-            <div class="flex items-center justify-between h-full px-5 sm:px-10 max-w-">
+        <div class="w-full max-w-[100%]">
+            <div class="flex items-center justify-between h-full px-5 sm:px-10">
                 <div class="w-1/4">
                     <!-- Use router-link instead of anchor tag -->
                     <router-link :to="{ name: 'home' }">
-                        <img class="hidden xl:block max-w-[250px] cursor-pointer" :src="imageUrl" alt="Logo">
+                        <img class=" max-w-[150px] lg:max-w-[200px] xl:max-w-[250px] cursor-pointer" :src="imageUrl" alt="Logo">
                     </router-link>
                 </div>
-                <ul class="w-3/4 flex justify-end list-none m-0">
+                <ul class="w-3/4 justify-end list-none m-0 hidden lg:flex">
                     <li class="text-white cursor-pointer" v-for="(page, pageIndex) in pages" :key="pageIndex">
                         <!-- Use router-link instead of anchor tag -->
                         <RouterLink :to="page.page.uri"
                                     :class="{ 'text-black': hover && $route.path === '/' }"
-                                    class="hidden xl:flex mx-2 2xl:mx-4 text-black">
+                                    class="flex mx-2 2xl:mx-4 text-black">
                             {{ page.page.title }}
                         </RouterLink>
                     </li>
                 </ul>
+                <Slide right class="relative bm-vlk lg:hidden">
+                    <a id="home" href="#">
+                        <span>Home</span>
+                    </a>
+                </Slide>
             </div>
         </div>
     </header>
@@ -27,6 +32,7 @@
 
 <script>
 import axios from "axios";
+import { Slide } from 'vue3-burger-menu';
 
 export default {
     name: "Header",
@@ -37,6 +43,9 @@ export default {
             imageUrl: '',
             whiteImageUrl: '',
         };
+    },
+    components: {
+        Slide // Register your component
     },
     computed: {
         imageUrl() {
@@ -60,9 +69,8 @@ export default {
                 const companyData = response.data.data.find(item => item.handle === 'company');
 
                 if (companyData && companyData.logo) {
-                    this.imageUrl = companyData.logo.url
+                    this.imageUrl = companyData.logo.url;
                 }
-
             })
             .catch(error => {
                 console.error('Error fetching globals', error);
@@ -71,6 +79,10 @@ export default {
 };
 </script>
 
-<style scoped>
-/* Add any additional styling you need */
+<style>
+.bm-vlk .bm-burger-button {
+    position: relative;
+    top: 0;
+    left: 0;
+}
 </style>

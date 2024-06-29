@@ -1,12 +1,12 @@
 <template>
-    <div v-if="home" class="parallax-container relative">
+    <div v-if="home" class="parallax-container relative py-[6rem]">
         <!-- Dark overlay -->
-        <div class="dark-overlay absolute inset-0"></div>
+        <div class="dark-overlay inset-0"></div>
         <!-- Background image -->
-        <div class="parallax-background absolute" :style="parallaxBackgroundStyle"></div>
+        <div class="parallax-background" :style="parallaxBackgroundStyle"></div>
         <!-- Content -->
-        <div class="content-container absolute w-full">
-            <div class="w-full flex justify-center absolute">
+        <div class="content-container w-full">
+            <div class="w-full flex justify-center">
                 <div class="flex justify-center flex-col items-center text-center w-full max-w-[75%]">
                     <h1 v-html="home.paragraph_section_2?.heading" class="text-4xl text-white font-bold mb-4"></h1>
                     <p class="text-white text-center max-w-[800px]" v-html="home.paragraph_section_2?.body"></p>
@@ -45,7 +45,7 @@ export default {
 
 <style scoped>
 .parallax-container {
-    height: 500px; /* Adjust height as needed */
+
     position: relative;
     overflow: hidden;
 }
@@ -61,7 +61,9 @@ export default {
 }
 
 .parallax-background {
-    min-height: 500px;
+    position: absolute;
+    top: 0;
+    height: 100%;
     width: 100%;
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -77,6 +79,6 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%; /* Ensure content container covers the entire parallax container */
+
 }
 </style>

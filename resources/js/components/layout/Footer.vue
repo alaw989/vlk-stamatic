@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-[#25375E] w-full flex justify-center pb-[4rem] pt-[2rem]">
+    <div class="bg-[#25375E] w-full flex justify-center pb-[4rem] pt-[6rem]">
         <div class="w-full max-w-[85%] lg:max-w-[75%]">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center pb-4">
                 <div class="text-[#fff] mb-2 w-full">

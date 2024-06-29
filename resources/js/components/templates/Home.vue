@@ -13,10 +13,16 @@
         <div class="relative my-[6rem]">
             <InfoSquares :home="page"/>
         </div>
-        <div class="relative my-[6rem]">
+        <div class="relative">
             <BgParagraph2 :home="page"/>
         </div>
-        <div class="relative mt-[6rem] ">
+        <div class="relative">
+           <Clients :home="page" />
+        </div>
+        <div class="relative ">
+            <Testimonials :home="page" />
+        </div>
+        <div class="relative">
             <Footer :pages="page" :globals="globals"/>
         </div>
     </div>
@@ -31,16 +37,20 @@ import BgParagraph2 from "../home/BgParagraph2.vue";
 import InfoSquares from "../home/InfoSquares.vue";
 import Footer from "../layout/Footer.vue";
 import axios from "axios";
+import Clients from "../layout/Clients.vue";
+import Testimonials from "../layout/Testimonials.vue";
 
 export default {
     name: "Home",
     components: {
+        Clients,
         Header,
         Hero,
         FiftyFifty,
         BgParagraph,
         BgParagraph2,
         InfoSquares,
+        Testimonials,
         Footer
     },
     data() {
