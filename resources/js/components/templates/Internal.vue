@@ -4,12 +4,12 @@
         <!-- Use v-if to conditionally render InternalHero -->
         <InternalHero v-if="currentPage && $route.path !== '/contact'" :currentPage="currentPage"/>
         <Contact v-if="$route.path === '/contact'"></Contact>
-        <div class="my-[6rem] justify-center relative flex w-full">
+        <div v-if="$route.path !== '/contact'" class="my-[6rem] justify-center relative flex w-full">
             <div class="w-full max-w-[75%] flex items-center h-full relative z-10 flex-col" v-if="currentPage"
                  v-html="currentPage.content">
             </div>
         </div>
-        <Clients />
+        <Clients/>
         <Footer :pages="pages"/>
     </div>
 </template>
@@ -35,16 +35,16 @@ export default {
     data() {
         return {
             pages: [],
-            currentPage: null // Initialize currentPage to null
+            currentPage: null
         };
     },
 
     mounted() {
-        this.fetchPage(); // Fetch the initial page data when the component mounts
+        this.fetchPage();
     },
 
     watch: {
-        '$route.path': 'fetchPage' // Watch for route changes and call fetchPage method
+        '$route.path': 'fetchPage'
     },
 
     methods: {

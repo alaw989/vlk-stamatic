@@ -2,14 +2,14 @@
     <div class="bg-[#25375E] w-full flex justify-center pb-[4rem] pt-[6rem]">
         <div class="w-full max-w-[85%] lg:max-w-[75%]">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center pb-4">
-                <div class="text-[#fff] mb-2 w-full">
-                    Get tips on office design, productivity, and more when you sign up for our monthly newsletter.
+                <div class="text-[#fff] w-full text-right">
+                    Questions? Contact Us
                 </div>
-                <div class="flex justify-between xl:justify-end w-full">
-                    <input placeholder="Company email*" class="md:mx-4 rounded-sm px-7 text-md" type="text">
+                <div class="flex justify-between xl:justify-end">
+                    <input placeholder="Email Address" class="md:mx-4 rounded-sm pl-4 text-md" type="text">
                     <button
                         class="min-w-[100px] border-white border-2 text-white text-md lg:text-lg px-4 py-2 rounded-full bg-[#3eb488] hover:bg-white hover:text-[#3eb488]">
-                        Sign Up
+                        Submit
                     </button>
                 </div>
             </div>
@@ -19,10 +19,10 @@
                     <li class="mr-6">
                         <ul class="text-[#fff] flex flex-col">
                             <li class="mb-6 font-bold">VibeLinkRaft</li>
-                            <li class="text-white cursor-pointer mb-6" v-for="(menu, menuIndex) in menuItems"
+                            <li class="text-white cursor-pointer mb-6" v-for="(menu, menuIndex) in footerNav1"
                                 :key="menuIndex">
                                 <RouterLink :to="menu.page.uri" :class="{ 'text-black': hover && $route.path === '/' }"
-                                            class="hidden xl:flex ">
+                                            class="hidden xl:flex text-white">
                                     {{ menu.page.title }}
                                 </RouterLink>
                             </li>
@@ -31,22 +31,24 @@
                     <li>
                         <ul class="text-[#fff] flex flex-col">
                             <li class="mb-6 font-bold">Solutions</li>
-                            <li class="mb-6">
-                                <a href="/about" class="cursor-pointer hover:underline">Sessions</a>
-                            </li>
-                            <li class="mb-6">
-                                <a href="/about" class="cursor-pointer hover:underline">Classes</a>
-                            </li>
-                            <li class="mb-6">
-                                <a href="/about" class="cursor-pointer hover:underline">Networking Opportunities</a>
+                            <li class="text-white cursor-pointer mb-6" v-for="(menu, menuIndex) in footerNav2"
+                                :key="menuIndex">
+                                <RouterLink :to="menu.page.uri" :class="{ 'text-black': hover && $route.path === '/' }"
+                                            class="hidden xl:flex text-white">
+                                    {{ menu.page.title }}
+                                </RouterLink>
                             </li>
                         </ul>
                     </li>
                     <li>
                         <ul class="text-[#fff] flex flex-col">
                             <li class="mb-6 font-bold">Connect</li>
-                            <li class="mb-6">
-                                <a href="/contact" class="cursor-pointer hover:underline">Contact</a>
+                            <li class="text-white cursor-pointer mb-6" v-for="(menu, menuIndex) in footerNav3"
+                                :key="menuIndex">
+                                <RouterLink :to="menu.page.uri" :class="{ 'text-black': hover && $route.path === '/' }"
+                                            class="hidden xl:flex text-white">
+                                    {{ menu.page.title }}
+                                </RouterLink>
                             </li>
                             <li class="flex">
                                 <ul class="flex">
@@ -61,19 +63,12 @@
                     <li>
                         <ul class="text-[#fff] flex flex-col">
                             <li class="mb-6 font-bold">Members</li>
-                            <li class="mb-6">
+                            <li class="mb-6 text-white">
                                 Sign In
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <ul class="text-[#fff] flex flex-col">
-                            <li class="mb-6 font-bold">Language</li>
-                            <li class="mb-6">
-                                English
-                            </li>
-                        </ul>
-                    </li>
+
                 </ul>
             </div>
             <div class="flex flex-col xl:flex-row justify-between items-center mt-6 xl:items-end">
@@ -83,11 +78,7 @@
                     </a>
                 </div>
                 <ul class="text-[#fff] flex justify-center flex-wrap text-sm">
-                    <li class="ml-6 mb-2"><a href="" class="cursor-pointer hover:underline">Website & Portal Terms</a>
-                    </li>
-                    <li class="ml-6 mb-2"><a href="" class="cursor-pointer hover:underline">Online Privacy Policy</a>
-                    </li>
-                    <li class="ml-6 mb-2"><a href="" class="cursor-pointer hover:underline">© 2024 VibeLinkRaft. All
+                    <li class="ml-6 mb-2"><a href="" class="text-white cursor-pointer hover:underline">© 2024 VibeLinkRaft. All
                         rights reserved.</a></li>
                 </ul>
             </div>
@@ -103,36 +94,46 @@ export default {
     data() {
         return {
             imageUrl: '',
-            menuItems: [],
+            footerNav1: [],
+            footerNav2: [],
+            footerNav3: [],
+            footerNav4: [],
             socialMediaIcons: []
         };
     },
     mounted() {
-        axios.get('/api/navs/footer/tree')
-            .then(response => {
-                this.menuItems = response.data.data;
-            })
-            .catch(error => {
-                console.error('Error fetching header navigation:', error);
-            });
+        const footerNavRequests = [
+            axios.get('/api/navs/footer/tree'),
+            axios.get('/api/navs/footer_nav_2/tree'),
+            axios.get('/api/navs/footer_nav_3/tree'),
+            axios.get('/api/navs/footer_nav_4/tree'),
+            axios.get('/api/globals')
+        ];
 
-        axios.get('/api/globals')
-            .then(response => {
-                const companyData = response.data.data.find(item => item.handle === 'company');
+        Promise.all(footerNavRequests)
+            .then(responses => {
+                this.footerNav1 = responses[0].data.data;
+                this.footerNav2 = responses[1].data.data;
+                this.footerNav3 = responses[2].data.data;
+                this.footerNav4 = responses[3].data.data;
 
-                if (companyData && companyData.social_media_icons) {
-                    this.socialMediaIcons = companyData.social_media_icons;
+                const globalsData = responses[4].data.data.find(item => item.handle === 'company');
+
+                if (globalsData && globalsData.social_media_icons) {
+                    this.socialMediaIcons = globalsData.social_media_icons;
                 }
 
-                if (companyData && companyData.logo) {
-                    this.imageUrl = companyData.logo.url
+                if (globalsData && globalsData.logo) {
+                    this.imageUrl = globalsData.logo.url;
                 }
-
             })
             .catch(error => {
-                console.error('Error fetching globals', error);
+                console.error('Error fetching data', error);
             });
     }
 };
 </script>
 
+<style scoped>
+/* Add any custom styles here */
+</style>

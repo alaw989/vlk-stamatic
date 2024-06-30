@@ -1,0 +1,30 @@
+title: Clients
+fields:
+  -
+    handle: learn_more_link
+    field:
+      type: link
+      display: 'Learn More Link'
+  -
+    handle: replicator_field
+    field:
+      type: replicator
+      display: 'Client Logos'
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          sets:
+            new_set:
+              display: 'New Set'
+              fields:
+                -
+                  handle: client_image
+                  field:
+                    container: assets
+                    type: assets
+                    display: 'Client Image'
+                -
+                  handle: client_link
+                  field:
+                    type: link
+                    display: 'Client Link'

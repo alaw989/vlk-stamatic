@@ -1,11 +1,11 @@
 ---
 id: home
 blueprint: pages
-title: 'Where Creativity Meets Community'
+title: Home
 template: home
 author: 3cde8979-9e2c-4235-8275-1b6545aee897
 updated_by: 3cde8979-9e2c-4235-8275-1b6545aee897
-updated_at: 1719685612
+updated_at: 1719765415
 is_homepage: true
 content_replicator:
   -
@@ -122,6 +122,15 @@ clients:
       type: new_set
       enabled: true
   learn_more_link: 'entry::d0283a8b-b206-439a-857c-44267172cca0'
+heading: 'Where Creativity Meets Community'
+client_link: 'http://www.google.com'
+client_image:
+  - logos/clients/amazon-com-amazon-video-logo-company-brand-amazon-logo-3cab5e05d2d442950141b0b3dcc99980.png
+replicator_field:
+  -
+    id: ly1rvtog
+    type: new_set
+    enabled: true
 ---
 Join a Vibrant Community of Filmmakers and Creatives. Access Exclusive Industry Classes, Inspiring Events, State-of-the-Art Studio Rentals, Professional  Tapings, and so much more!
 

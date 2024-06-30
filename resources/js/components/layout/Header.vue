@@ -2,8 +2,8 @@
     <header class="flex justify-center py-4 z-1 z-10 relative"
             :style="{ backgroundColor: '#fff'  }"
             @mouseover="hover = true" @mouseleave="hover = false">
-        <div class="w-full max-w-[100%]">
-            <div class="flex items-center justify-between h-full px-5 sm:px-10">
+        <div class="w-full  max-w-[75%]">
+            <div class="flex items-center justify-between h-full ">
                 <div class="w-1/4">
                     <!-- Use router-link instead of anchor tag -->
                     <router-link :to="{ name: 'home' }">

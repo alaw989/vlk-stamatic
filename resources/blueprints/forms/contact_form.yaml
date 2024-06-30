@@ -1,0 +1,26 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: first_name
+            field:
+              type: text
+              display: 'First Name'
+          -
+            handle: last_name
+            field:
+              type: text
+              display: 'Last Name'
+          -
+            handle: email
+            field:
+              type: text
+              display: Email
+          -
+            handle: comments
+            field:
+              type: textarea
+              display: Comments

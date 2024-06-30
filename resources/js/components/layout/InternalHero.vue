@@ -1,21 +1,13 @@
 <template>
-    <div class="h-[50vh] justify-center relative flex w-full">
-        <div class="w-full max-w-[100%] flex items-center h-full relative z-10">
+    <div v-if="currentPage && currentPage.assets_field && currentPage.assets_field.length > 0"
+         class="h-[50vh] justify-center relative flex w-full">
+        <div class="w-full flex h-full relative z-10">
             <!-- Use currentPage.image as the background image URL -->
-
-            <div class="image absolute h-full w-full bg-cover bg-center right-0 flex"
-                 v-if="currentPage"
-                 :style="{
-                     backgroundImage: 'url(' +
-                         (currentPage.assets_field && currentPage.assets_field.length > 0
-                             ? currentPage.assets_field[0].url
-                             : images[selectedHomeIndex]) +
-                         ')'
-                 }">
-
-                    <h1 class="text-left pl-[100px] pr-[40px] text-white flex items-center" v-if="currentPage">
-                        {{ currentPage.title }}</h1>
-
+            <div class="image absolute h-full w-full bg-cover justify-center bg-center right-0 flex"
+                 :style="{ backgroundImage: 'url(' + currentPage.assets_field[0].url + ')' }">
+                <h1 class="text-white w-full max-w-[75%] flex justify-start items-center">
+                    {{ currentPage.heading }}
+                </h1>
             </div>
         </div>
     </div>
@@ -28,10 +20,6 @@ export default {
     name: "InternalHero",
     data() {
         return {
-            images: [
-                '/images/office-1.jpg',
-            ],
-            selectedHomeIndex: 0,
             currentPage: null // Initialize currentPage as null
         }
     },
@@ -55,7 +43,6 @@ export default {
     }
 }
 </script>
-
 
 <style scoped>
 </style>
