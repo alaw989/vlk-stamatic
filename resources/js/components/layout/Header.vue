@@ -2,12 +2,13 @@
     <header class="flex justify-center py-4 z-1 z-10 relative"
             :style="{ backgroundColor: '#fff'  }"
             @mouseover="hover = true" @mouseleave="hover = false">
-        <div class="w-full  max-w-[75%]">
-            <div class="flex items-center justify-between h-full ">
+        <div class="w-full max-w-[75%]">
+            <div class="flex items-center justify-between h-full">
                 <div class="w-1/4">
                     <!-- Use router-link instead of anchor tag -->
                     <router-link :to="{ name: 'home' }">
-                        <img class=" max-w-[150px] lg:max-w-[200px] xl:max-w-[250px] cursor-pointer" :src="imageUrl" alt="Logo">
+                        <img class="max-w-[150px] lg:max-w-[200px] xl:max-w-[250px] cursor-pointer" :src="imageUrl"
+                             alt="Logo">
                     </router-link>
                 </div>
                 <ul class="w-3/4 justify-end list-none m-0 hidden lg:flex">
@@ -21,9 +22,15 @@
                     </li>
                 </ul>
                 <Slide right class="relative bm-vlk lg:hidden">
-                    <a id="home" href="#">
-                        <span>Home</span>
-                    </a>
+                    <template #default>
+                        <ul>
+                            <li v-for="(page, pageIndex) in pages" :key="pageIndex">
+                                <RouterLink :to="page.page.uri">
+                                    {{ page.page.title }}
+                                </RouterLink>
+                            </li>
+                        </ul>
+                    </template>
                 </Slide>
             </div>
         </div>
@@ -32,7 +39,7 @@
 
 <script>
 import axios from "axios";
-import { Slide } from 'vue3-burger-menu';
+import {Slide} from 'vue3-burger-menu';
 
 export default {
     name: "Header",
@@ -79,10 +86,31 @@ export default {
 };
 </script>
 
-<style>
-.bm-vlk .bm-burger-button {
-    position: relative;
-    top: 0;
-    left: 0;
+<style lang="scss">
+.bm-vlk {
+    .bm-burger-button {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    .bm-item-list ul {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+header {
+    background-color: white;
+
+    &:hover {
+        background-color: #f0f0f0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .bm-vlk {
+        display: none;
+    }
 }
 </style>
