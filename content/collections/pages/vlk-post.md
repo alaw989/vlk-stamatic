@@ -4,7 +4,7 @@ blueprint: page
 is_homepage: false
 title: 'VLK Post'
 assets_field:
-  - about-page-background.jpg
+  - post-image.jpeg
 paragraph_section_1:
   heading: null
   body: null
@@ -22,6 +22,6 @@ clients:
   replicator_field: {  }
   learn_more_link: null
 updated_by: 3cde8979-9e2c-4235-8275-1b6545aee897
-updated_at: 1719760927
+updated_at: 1720564106
 parent: home
 ---

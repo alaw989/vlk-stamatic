@@ -75,7 +75,7 @@ export default {
 
 .content-container {
     position: relative;
-    z-index: 10;
+    z-index: 9;
     display: flex;
     align-items: center;
     justify-content: center;

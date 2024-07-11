@@ -5,7 +5,7 @@ title: Home
 template: home
 author: 3cde8979-9e2c-4235-8275-1b6545aee897
 updated_by: 3cde8979-9e2c-4235-8275-1b6545aee897
-updated_at: 1719765415
+updated_at: 1720737715
 is_homepage: true
 content_replicator:
   -
@@ -49,9 +49,9 @@ assets_field:
   - home-page-background.png
 mission_statement: 'Our mission at VibeLinKraft is to cultivate an inclusive environment where filmmakers and creatives can learn, grow, and connect within the challenging landscape of the industry. We offer industry-leading education, engaging community events, and professional resources to support every stage of your creative journey.'
 paragraph_section_1:
-  heading: 'Our Mission'
-  body: 'Our mission at VibeLinKraft is to cultivate an inclusive environment where filmmakers and creatives can learn, grow, and connect within the challenging landscape of the industry. We offer industry-leading education, engaging community events, and professional resources to support every stage of your creative journey.'
-  background_image: pexels-aljona-ovtsinnikova-121486965-24740432.jpg
+  heading: 'Our approach'
+  body: "Rooted in collaboration, creativity, and commitment, we believe that the best stories are born from strong partnerships and innovative thinking. Our team of experienced editors, designers, and artists work closely with you at every stage of the post-production process to ensure your vision is realized to its fullest potential. We view our clients as creative partners. Our passion for storytelling drives us to push the boundaries of creativity. Whether it's perfecting the color grade, enhancing sound design, or creating stunning visual editing, we strive for excellence in every frame."
+  background_image: null
   link_text: 'Learn More'
   link_url: 'entry::961a9ecd-8411-4eb0-8059-4f727132fa08'
 fifty_fifty_repeater:
@@ -83,10 +83,10 @@ fifty_fifty_repeater:
     type: content_set
     enabled: true
 paragraph_section_2:
-  heading: 'Our Vision'
-  body: 'We envision a world where every creative individual has the resources and support to transform their ideas into impactful projects. By connecting and nurturing talent, we aim to be the leading hub for creative growth and collaboration.'
+  heading: 'An Alford Media Post Production Company'
+  body: 'As a proud subsidiary of Alford Media, VLK Post benefits from the support and expertise of a renowned leader in the media industry. Alford Media’s legacy of innovation, quality, and customer service aligns perfectly with our mission to deliver top-tier post-production services.'
   background_image: about-page-background.jpg
-  link_text: 'Learn More'
+  link_text: 'Check Out Alford Media'
   link_url: 'entry::961a9ecd-8411-4eb0-8059-4f727132fa08'
 clients:
   heading: 'Our Clients'
@@ -122,7 +122,7 @@ clients:
       type: new_set
       enabled: true
   learn_more_link: 'entry::d0283a8b-b206-439a-857c-44267172cca0'
-heading: 'Where Creativity Meets Community'
+heading: 'World-class post production services, exceptional creativity, and a commitment to seamless collaboration.'
 client_link: 'http://www.google.com'
 client_image:
   - logos/clients/amazon-com-amazon-video-logo-company-brand-amazon-logo-3cab5e05d2d442950141b0b3dcc99980.png
@@ -131,8 +131,5 @@ replicator_field:
     id: ly1rvtog
     type: new_set
     enabled: true
+subheading: 'Delivering accessible, high-quality post production on time, on budget, every time.'
 ---
-Join a Vibrant Community of Filmmakers and Creatives. Access Exclusive Industry Classes, Inspiring Events, State-of-the-Art Studio Rentals, Professional  Tapings, and so much more!
-
-<br>
-Come Vibe with us. Come Link with us. Come Kraft with us.

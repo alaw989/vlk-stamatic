@@ -4,23 +4,26 @@
             @mouseover="hover = true" @mouseleave="hover = false">
         <div class="w-full max-w-[75%]">
             <div class="flex items-center justify-between h-full">
-                <div class="w-1/4">
+                <div class="mr-6">
                     <!-- Use router-link instead of anchor tag -->
                     <router-link :to="{ name: 'home' }">
-                        <img class="max-w-[150px] lg:max-w-[200px] xl:max-w-[250px] cursor-pointer" :src="imageUrl"
+                        <img class="max-w-[150px] lg:max-w-[200px]  cursor-pointer" :src="imageUrl"
                              alt="Logo">
                     </router-link>
                 </div>
-                <ul class="w-3/4 justify-end list-none m-0 hidden lg:flex">
+                <ul class="w-3/4 justify-start list-none m-0 hidden lg:flex">
                     <li class="text-white cursor-pointer" v-for="(page, pageIndex) in pages" :key="pageIndex">
                         <!-- Use router-link instead of anchor tag -->
                         <RouterLink :to="page.page.uri"
                                     :class="{ 'text-black': hover && $route.path === '/' }"
-                                    class="flex mx-2 2xl:mx-4 text-black">
+                                    class="flex mx-2 text-black text-sm">
                             {{ page.page.title }}
                         </RouterLink>
                     </li>
                 </ul>
+                <a
+                   class="hidden lg:block text-center cursor-pointer border-2 w-[160px] py-2  rounded-full bg-[#3eb488] border-[#3eb488] text-[#fff] font-bold"
+                  >Get In Touch</a>
                 <Slide right class="relative bm-vlk lg:hidden">
                     <template #default>
                         <ul>
@@ -97,6 +100,19 @@ export default {
     .bm-item-list ul {
         display: flex;
         flex-direction: column;
+    }
+
+    .bm-menu {
+        background-color: #3eb488;
+        nav {
+            ul {
+                li {
+                    a {
+                        color: #fff;
+                    }
+                }
+            }
+        }
     }
 }
 

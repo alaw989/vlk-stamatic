@@ -1,7 +1,7 @@
 ---
 id: 2dc4ab4b-dccc-450f-8324-d6675db1ca4c
 blueprint: client
-title: 'Our Clients'
+title: 'Our Partners'
 replicator_field:
   -
     id: ly1rzep9
@@ -36,6 +36,6 @@ replicator_field:
     type: new_set
     enabled: true
 updated_by: 3cde8979-9e2c-4235-8275-1b6545aee897
-updated_at: 1719766546
+updated_at: 1720736896
 learn_more_link: 'entry::961a9ecd-8411-4eb0-8059-4f727132fa08'
 ---

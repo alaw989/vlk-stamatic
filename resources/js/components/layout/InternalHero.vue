@@ -1,11 +1,14 @@
 <template>
     <div v-if="currentPage && currentPage.assets_field && currentPage.assets_field.length > 0"
          class="h-[50vh] justify-center relative flex w-full">
+
         <div class="w-full flex h-full relative z-10">
+
             <!-- Use currentPage.image as the background image URL -->
             <div class="image absolute h-full w-full bg-cover justify-center bg-center right-0 flex"
                  :style="{ backgroundImage: 'url(' + currentPage.assets_field[0].url + ')' }">
-                <h1 class="text-white w-full max-w-[75%] flex justify-start items-center">
+                <div class="absolute inset-0 bg-black opacity-50 z-[1]"></div>
+                <h1 class="text-white w-full max-w-[75%] flex justify-start items-center h-full z-[2]">
                     {{ currentPage.heading }}
                 </h1>
             </div>

@@ -6,7 +6,7 @@
                     Questions? Contact Us
                 </div>
                 <div class="flex justify-between xl:justify-end">
-                    <input placeholder="Email Address" class="md:ml-4 rounded-sm pl-4 text-md mr-2 w-full pr-12 md:pr-0 md:w-[200px]" type="text">
+                    <input placeholder="Email Address" class="md:ml-4 rounded-sm pl-4 text-md  w-full pr-12 md:pr-0 md:w-[300px]" type="text">
                     <button
                         class="ml-2 min-w-[100px] w-full ml-6 max-w-[200px] border-white border-2 text-white text-md lg:text-lg px-4 py-2 rounded-full bg-[#3eb488] hover:bg-white hover:text-[#3eb488]">
                         Submit
@@ -15,7 +15,7 @@
             </div>
             <hr class="mb-4">
             <div class="w-full">
-                <ul class="flex flex-wrap justify-between">
+                <ul class="flex flex-wrap justify-start sm:justify-between">
                     <li class="mr-6">
                         <ul class="text-[#fff] flex flex-col">
                             <li class="mb-6 font-bold">VibeLinkRaft</li>
@@ -71,7 +71,7 @@
                 </ul>
             </div>
             <div class="flex flex-col md:flex-row justify-between items-center mt-6 xl:items-end">
-                <div class="max-w-[250px]">
+                <div class="max-w-[250px] mb-4 md:mb-0">
                     <a href="/">
                         <img class="xl:block cursor-pointer" :src="imageUrl" alt="Example Image">
                     </a>

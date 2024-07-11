@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="relative h-dvh">
+        <div class="relative">
             <Header :globals="globals"/>
             <Hero :home="page"/>
         </div>

@@ -5,9 +5,9 @@
         <!-- Background image -->
         <div class="parallax-background absolute" :style="parallaxBackgroundStyle"></div>
         <!-- Content -->
-        <div class="content-container absolute w-full">
-            <div class="w-full flex justify-center absolute">
-                <div class="flex justify-center flex-col items-center text-center w-full max-w-[75%]">
+        <div class="content-container absolute w-full z-[9]">
+            <div class="w-full flex justify-center absolute  z-[-1]">
+                <div class="flex justify-center flex-col items-center text-center w-full max-w-[75%] z-[-1] relative">
                     <h1 v-html="home.paragraph_section_1?.heading" class="text-4xl text-white font-bold mb-4"></h1>
                     <p class="text-white text-center max-w-[800px]" v-html="home.paragraph_section_1?.body"></p>
                     <router-link :to="home.paragraph_section_1.link_url" v-if="home.paragraph_section_1.link_url">
@@ -73,7 +73,7 @@ export default {
 
 .content-container {
     position: relative;
-    z-index: 10;
+    z-index: 9;
     display: flex;
     align-items: center;
     justify-content: center;

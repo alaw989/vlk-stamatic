@@ -6,12 +6,12 @@
                 class="flex flex-col justify-center w-full max-w-[75%]">
                 <li class="w-full lg:w-[1/2]">
                     <div :style="{ backgroundImage: `url(${content.image.url})` }"
-                         class="bg-cover bg-center rounded-md h-96 lg:w-[600px] max-h-[400px]">
+                         class="bg-cover bg-center rounded-md h-96 lg:w-full max-h-[400px]">
                     </div>
                 </li>
                 <li class="w-[20px]"></li>
-                <li class="w-full lg:w-[1/2] flex flex-col p-0" :class="[index % 2 === 0 ? 'lg:pl-20' : '']">
-                    <div class="flex flex-col h-full justify-center" :class="[index % 2 === 0 ? 'lg:px-5' : '']">
+                <li class="w-full lg:w-[1/2] flex flex-col p-0" :class="[index % 2 === 0 ? 'lg:pl-20' : 'lg:pr-20']">
+                    <div class="flex flex-col h-full justify-center" :class="[index % 2 === 0 ? 'lg:px-5' : '']" >
                         <h1 class="text-2xl font-bold mb-4 mt-6 lg:mt-0" v-html="content.text"></h1>
                         <p class="text-lg" v-html="content.textarea"></p>
                         <a :href="content.link"

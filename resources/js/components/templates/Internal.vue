@@ -4,7 +4,7 @@
         <!-- Use v-if to conditionally render InternalHero -->
         <InternalHero v-if="currentPage && $route.path !== '/contact'" :currentPage="currentPage"/>
         <Contact v-if="$route.path === '/contact'"></Contact>
-        <div v-if="$route.path !== '/contact'" class="my-[6rem] justify-center relative flex w-full">
+        <div v-if="$route.path !== '/contact'" class="my-[6rem] justify-center relative flex w-full relative z-[-1]">
             <div class="w-full max-w-[75%] flex items-center h-full relative z-10 flex-col" v-if="currentPage"
                  v-html="currentPage.content">
             </div>
