@@ -1,34 +1,64 @@
 <template>
     <div v-if="home" class="parallax-container relative">
         <!-- Dark overlay -->
-        <div class="dark-overlay absolute inset-0"></div>
+
         <!-- Background image -->
         <div class="parallax-background absolute" :style="parallaxBackgroundStyle"></div>
         <!-- Content -->
         <div class="content-container absolute w-full">
             <div class="w-full flex justify-center absolute">
                 <div class="flex justify-center flex-col items-center text-center w-full max-w-[75%]">
-                    <h1 v-html="home.paragraph_section_1?.heading" class="text-4xl text-white font-bold mb-4"></h1>
-                    <p class="text-white text-center max-w-[800px]" v-html="home.paragraph_section_1?.body"></p>
-                    <router-link :to="home.paragraph_section_1.link_url" v-if="home.paragraph_section_1.link_url">
-                        <button class="text-white text-md lg:text-lg px-4 py-2 mt-6 rounded-full bg-[#3eb488]">
-                            Learn More
-                        </button>
-                    </router-link>
+                    <div class="carousel-container">
+                        <Carousel :breakpoints="breakpoints" :wrap-around="true" :autoplay="4000">
+                            <Slide v-for="(testimonial, index) in testimonials" :key="index">
+                                <div class="testimonial-slide max-w-[75%]">
+                                    <h2 class="testimonial-text font-normal">{{ testimonial.testimonial }}</h2>
+                                    <p class="testimonial-author m-0">— {{ testimonial.author }}</p>
+                                </div>
+                            </Slide>
+                            <Pagination/>
+                            <Navigation/>
+                        </Carousel>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 </template>
 
 <script>
+import axios from "axios";
+import {Carousel, Slide, Pagination, Navigation} from 'vue3-carousel'
+
 export default {
     name: "Testimonials",
+    components: {
+        Carousel,
+        Slide,
+        Pagination,
+        Navigation,
+    },
     props: {
         home: {
             type: Object,
             required: true
         }
+    },
+    data() {
+        return {
+            testimonials: [],
+            breakpoints: {
+                700: {
+                    itemsToShow: 1,
+                    snapAlign: 'center',
+                },
+                1024: {
+                    itemsToShow: 1,
+                    snapAlign: 'center',
+                },
+            },
+        };
     },
     computed: {
         parallaxBackgroundStyle() {
@@ -38,7 +68,14 @@ export default {
         }
     },
     mounted() {
-        console.log('home', this.home);
+        axios.get('/api/collections/testimonials/entries')
+            .then(response => {
+                this.testimonials = response.data.data.map(entry => entry.testimonials).flat();
+                console.log(this.testimonials)
+            })
+            .catch(error => {
+                console.error('Error fetching testimonials', error);
+            });
     }
 }
 </script>
@@ -79,4 +116,14 @@ export default {
     justify-content: center;
     height: 100%; /* Ensure content container covers the entire parallax container */
 }
+
+.testimonial-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
 </style>

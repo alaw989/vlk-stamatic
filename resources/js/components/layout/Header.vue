@@ -21,7 +21,7 @@
                         </RouterLink>
                     </li>
                 </ul>
-                <a
+                <a href="/contact"
                    class="hidden lg:block text-center cursor-pointer border-2 w-[160px] py-2  rounded-full bg-[#3eb488] border-[#3eb488] text-[#fff] font-bold"
                   >Get In Touch</a>
                 <Slide right class="relative bm-vlk lg:hidden">

@@ -1,5 +1,5 @@
 <template>
-    <div v-if="home" class="w-full flex justify-center h-[91vh] items-center relative z-0 top-0">
+    <div v-if="home" class="w-full flex justify-center hero items-center relative z-0 top-0">
         <!-- Parallax background container -->
         <div class="parallax-container">
             <!-- Render video or image based on the type of asset -->
@@ -66,7 +66,16 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss"scoped>
+
+.hero {
+    height: calc(100vh -   78.9844px);
+
+   @media (min-width: 1025px) {
+       height: calc(100vh -   78.9844px);
+   }
+}
+
 .parallax-container {
     position: absolute;
     top: 0;

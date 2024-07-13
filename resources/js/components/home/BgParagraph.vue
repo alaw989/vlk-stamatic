@@ -1,15 +1,13 @@
 <template>
     <div v-if="home" class="parallax-container relative">
-        <!-- Dark overlay -->
-        <div class="dark-overlay absolute inset-0"></div>
-        <!-- Background image -->
+
         <div class="parallax-background absolute" :style="parallaxBackgroundStyle"></div>
         <!-- Content -->
         <div class="content-container absolute w-full z-[9]">
             <div class="w-full flex justify-center absolute  z-[-1]">
                 <div class="flex justify-center flex-col items-center text-center w-full max-w-[75%] z-[-1] relative">
-                    <h1 v-html="home.paragraph_section_1?.heading" class="text-4xl text-white font-bold mb-4"></h1>
-                    <p class="text-white text-center max-w-[800px]" v-html="home.paragraph_section_1?.body"></p>
+                    <h1 v-html="home.paragraph_section_1?.heading" class="text-4xl text-black font-bold mb-4"></h1>
+                    <p class="text-black text-center max-w-[800px]" v-html="home.paragraph_section_1?.body"></p>
                     <router-link :to="home.paragraph_section_1.link_url" v-if="home.paragraph_section_1.link_url">
                         <button class="text-white text-md lg:text-lg px-4 py-2 mt-6 rounded-full bg-[#3eb488]">
                             Learn More

@@ -3,10 +3,12 @@
         <!-- Render the content using the home prop -->
         <div class="w-full max-w-[75%]">
             <div class="flex justify-center flex-col items-center relative">
+                <h1 data-v-26218bd8="" class="text-4xl text-black font-bold text-center mb-4 lg:mb-6 text-white">What We
+                    Do</h1>
                 <div class="flex flex-col lg:flex-row">
                     <ul class="text-center flex-wrap lg:flex-nowrap lg:text-left flex flex-row lg:flex-col justify-around lg:justify-center lg:w-[25%]">
                         <!-- Render navigation items based on content_replicator -->
-                        <li class="cursor-pointer mb-6 uppercase text-[#3eb488] font-bold tracking-wide"
+                        <li class="cursor-pointer mb-6 uppercase text-[white] font-bold tracking-wide"
                             v-for="(content, index) in home.content_replicator" :key="index"
                             @click="selectedHomeIndex = index"
                             :class="{ 'font-bold': selectedHomeIndex === index }"
@@ -21,7 +23,8 @@
                 </div>
 
                 <!-- Render detailed content based on selectedHomeIndex -->
-                <div class="flex justify-center mt-[-25px] lg:absolute lg:bottom-[30px] lg:top-[150px] lg:right-[200px]">
+                <div
+                    class="flex justify-center mt-[-25px] lg:absolute lg:bottom-[30px] lg:top-[150px] lg:right-[200px]">
                     <div v-for="(content, index) in home.content_replicator" :key="index"
                          v-show="selectedHomeIndex === index"
                          class="box lg:w-[500px] bg-white lg:absolute w-[95%] lg:w-[200px] shadow-md p-10 flex flex-col justify-center"

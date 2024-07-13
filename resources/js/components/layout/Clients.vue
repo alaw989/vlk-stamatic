@@ -1,5 +1,5 @@
 <template>
-    <div class="parallax-container relative py-[6rem]" v-if="clients.length > 0">
+    <div class="parallax-container relative py-[6rem] " v-if="clients.length > 0">
         <div class="w-full">
             <div class="w-full flex justify-center">
                 <div class="flex justify-center flex-col items-center text-center w-full max-w-[90%] md:max-w-[75%]">

@@ -1,0 +1,45 @@
+title: Testimonial
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+          -
+            handle: testimonials
+            field:
+              type: replicator
+              display: Testimonials
+              sets:
+                new_set_group:
+                  display: 'New Set Group'
+                  sets:
+                    new_set:
+                      display: 'New Set'
+                      fields:
+                        -
+                          handle: testimonial
+                          field:
+                            type: textarea
+                            display: Testimonial
+                        -
+                          handle: author
+                          field:
+                            type: text
+                            display: Author
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'

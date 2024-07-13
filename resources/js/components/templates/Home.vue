@@ -4,20 +4,17 @@
             <Header :globals="globals"/>
             <Hero :home="page"/>
         </div>
-        <div class="relative my-[6rem]">
-            <FiftyFifty :home="page"/>
-        </div>
-        <div class="relative my-[6rem]">
+        <div class="relative ">
             <BgParagraph :home="page"/>
         </div>
-        <div class="relative my-[6rem]">
+        <div class="relative bg-[#3eb488] py-[6rem]">
             <InfoSquares :home="page"/>
         </div>
         <div class="relative">
-            <BgParagraph2 :home="page"/>
+            <Clients :home="page" />
         </div>
         <div class="relative">
-           <Clients :home="page" />
+            <BgParagraph2 :home="page"/>
         </div>
         <div class="relative ">
             <Testimonials :home="page" />

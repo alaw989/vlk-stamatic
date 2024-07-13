@@ -5,7 +5,7 @@ is_homepage: false
 template: layout
 title: About
 updated_by: 3cde8979-9e2c-4235-8275-1b6545aee897
-updated_at: 1720651747
+updated_at: 1720884143
 assets_field:
   - about-page-background.jpg
 paragraph_section_1:
@@ -32,50 +32,30 @@ clients:
   learn_more_link: null
 heading: 'Elevating stories through expert post-production.'
 ---
-<div class="relative">
-    <ul>
-        <li class="w-full flex justify-center mb-[6rem]">
-            <ul class="lg:flex-row-reverse flex flex-col justify-center w-full ">
-                <li class="w-full lg:w-1/2 h-[400px] lg:h-[600px]">
-                    <div class="bg-cover bg-center rounded-md h-full w-full"
-                        style="background-image: url(http://vlk-statamic.test/assets/post-image.jpeg);"></div>
-                </li>
-                <li class="w-[20px]"></li>
-                <li class="w-full lg:w-1/2 flex flex-col p-0">
-                    <div class="flex flex-col h-full justify-center">
-                      <h2>Your Vision,<br> Our Expertise</h2>
-                        <p class="max-w-[75%]">At VLK Post, we are dedicated to transforming raw footage into captivating stories with precision and creativity.
+<div class="flex flex-col-reverse lg:flex-row justify-center align-center lg:mb-[6rem]"> 
+  <div class="flex-1 mb-[6rem]">
+                <h2>Your Vision,<br> Our Expertise</h2>
+                        <p class="w-full lg:pr-[6rem]">At VLK Post, we are dedicated to transforming raw footage into captivating stories with precision and creativity.
                             Based in Alpharetta, Georgia, our full-service post-production house is home to a talented team of editors,
                             designers, and artists who are passionate about delivering exceptional work on time and on budget. With a deep
                             commitment to storytelling and a robust infrastructure for digital and physical security, we partner with you at
                             every step to bring your vision to life. Whether you’re working on commercials, broadcast episodics, or feature
                             films, VLK Post is here to provide the expertise and innovation you need for outstanding results.
                         </p>
-                    </div>
-                </li>
-            </ul>
-        </li>
-        <li class="w-full flex justify-center">
-            <ul class="lg:flex-row flex flex-col justify-center w-full">
-                <li class="w-full lg:w-1/2 lg:h-[600px] h-[400px]">
-                    <div class="bg-cover bg-center rounded-md h-full w-full mb-6"
-                        style="background-image: url('http://vlk-statamic.test/assets/post-image-2.jpeg');">
-                    </div>
-                </li>
-              <li class="w-full lg:w-1/2 lg:h-[600px] h-[400px]">
-                        <div class="bg-cover bg-center rounded-md w-full h-full"
-                        style="background-image: url('http://vlk-statamic.test/assets/post-image-2.jpeg');">
-                    </div>
-              </li>
-                <li class="w-[20px]"></li>
-                <li class="w-full lg:w-1/2 flex flex-col p-0 lg:pl-20">
-                    <div class="flex flex-col h-full justify-center lg:px-5">
-                        <h2>Our Why</h2>
-                        <p>
-                            At VLK Post, our driving force is the belief that every story deserves to be told with passion and
-                            precision. Our "why" is rooted in several core principles:
-                        </p>
-                      <h3>
+  </div>
+    <div class="flex-1 flex">
+      <img src="/assets/post-image.jpeg" class="mb-6 object-cover">  
+  </div>
+</div>
+<div class="flex flex-col lg:flex-row justify-between align-center"> 
+      <div class="flex-1 flex flex-col">
+      <img src="/assets/video-course.jpeg" class="mb-[4rem] object-cover">  
+         <img src="/assets/post-production-workflow-img.png" class="mb-[4rem] object-cover"> 
+  </div>
+  <div class="flex-1  lg:pl-[6rem] flex  flex-col">
+                <h2>Our Why</h2>
+                        <p class="w-full ">At VLK Post, our driving force is the belief that every story deserves to be told with passion and precision. Our "why" is rooted in several core principles:</p>
+     <h3>
                         Passion for Storytelling
                       </h3>
                       <p>
@@ -105,9 +85,6 @@ We recognize the importance of community in the creative industry. We are dedica
                       <p>
 We believe that diverse voices and perspectives enrich storytelling. Our commitment to diversity means actively seeking out and collaborating with talent from various backgrounds, ensuring that our team and the stories we tell reflect the world around us. Additionally, we prioritize accessibility in our services and facilities, making sure that our spaces and opportunities are open to everyone, regardless of physical abilities or limitations.
                       </p>
-                    </div>
-                </li>
-            </ul>
-        </li>
-    </ul>
+  </div>
+
 </div>
