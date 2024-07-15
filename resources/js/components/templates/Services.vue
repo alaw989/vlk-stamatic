@@ -6,7 +6,7 @@
 
         <div class="my-[6rem] justify-center relative flex w-full relative">
             <div class="max-w-[75%] flex flex-col lg:flex-row">
-                <div class="flex items-start lg:h-full w-full relative z-10" v-if="currentPage"
+                <div class="flex items-start lg:h-full w-full relative" v-if="currentPage"
                      v-html="currentPage.content">
                 </div>
                 <Accordion  />

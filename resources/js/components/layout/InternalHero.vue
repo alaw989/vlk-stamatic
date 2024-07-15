@@ -1,6 +1,6 @@
 <template>
     <div v-if="currentPage && currentPage.assets_field && currentPage.assets_field.length > 0"
-         class="h-[50vh] justify-center relative flex w-full">
+         class="h-[50vh] justify-center relative flex w-full z-[-1]">
 
         <div class="w-full flex h-full relative z-10">
 

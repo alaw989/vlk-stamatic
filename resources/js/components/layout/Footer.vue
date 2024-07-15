@@ -9,7 +9,7 @@
                     <input v-model="formData.email_address" placeholder="Email Address"
                            class="md:ml-4 rounded-sm pl-4 text-md w-full pr-12 md:pr-0 md:w-[300px]" type="email" required>
                     <button type="submit"
-                            class=" ml-2  hidden lg:block text-center cursor-pointer border-2 w-[160px] py-2 rounded-full
+                            class=" ml-2  lg:block text-center cursor-pointer border-2 w-[160px] py-2 rounded-full
           bg-[#3eb488] border-[#3eb488] text-[#fff] font-bold transition-colors duration-300
           hover:bg-white hover:text-[#3eb488] hover:border-[#3eb488] hover:no-underline">
                         {{ buttonText }}

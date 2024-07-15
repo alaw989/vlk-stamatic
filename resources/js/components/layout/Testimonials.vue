@@ -12,8 +12,8 @@
                         <Carousel :breakpoints="breakpoints" :wrap-around="true" :autoplay="4000">
                             <Slide v-for="(testimonial, index) in testimonials" :key="index">
                                 <div class="testimonial-slide max-w-[75%]">
-                                    <h2 class="testimonial-text font-normal">{{ testimonial.testimonial }}</h2>
-                                    <p class="testimonial-author m-0">— {{ testimonial.author }}</p>
+                                    <h2 class="text-lg md:text-xl lg:text-2xl font-normal">{{ testimonial.testimonial }}</h2>
+                                    <p class="text-sm md:text-base m-0">— {{ testimonial.author }}</p>
                                 </div>
                             </Slide>
                             <Pagination/>
@@ -24,12 +24,11 @@
             </div>
         </div>
     </div>
-
 </template>
 
 <script>
 import axios from "axios";
-import {Carousel, Slide, Pagination, Navigation} from 'vue3-carousel'
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
 export default {
     name: "Testimonials",
@@ -86,16 +85,6 @@ export default {
     overflow: hidden;
 }
 
-.dark-overlay {
-    background-color: rgba(0, 0, 0, 0.5); /* Adjust alpha value for darkness */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9;
-}
-
 .parallax-background {
     min-height: 500px;
     width: 100%;
@@ -123,6 +112,4 @@ export default {
     justify-content: center;
     text-align: center;
 }
-
-
 </style>

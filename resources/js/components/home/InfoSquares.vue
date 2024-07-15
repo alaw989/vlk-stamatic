@@ -45,13 +45,7 @@ export default {
             });
     },
     methods: {
-        truncateDescription(description, length, link) {
-            if (!description) return 'No description available';
-            if (description.length > length) {
-                return `${description.substring(0, length)} <a href="${link}" class="text-white"><br>Read More...</a>`;
-            }
-            return description;
-        }
+
     }
 }
 </script>
