@@ -7,7 +7,7 @@
         <div class="relative ">
             <BgParagraph :home="page"/>
         </div>
-        <div class="relative bg-[#3eb488] py-[6rem]">
+        <div class="relative bg-[#25375E] py-[6rem]">
             <InfoSquares :home="page"/>
         </div>
         <div class="relative">
