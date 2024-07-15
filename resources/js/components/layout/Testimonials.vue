@@ -71,7 +71,6 @@ export default {
         axios.get('/api/collections/testimonials/entries')
             .then(response => {
                 this.testimonials = response.data.data.map(entry => entry.testimonials).flat();
-                console.log(this.testimonials)
             })
             .catch(error => {
                 console.error('Error fetching testimonials', error);

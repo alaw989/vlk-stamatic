@@ -7,6 +7,7 @@
 <script>
 import { RouterView } from 'vue-router';
 import axios from 'axios';
+import { animateAccordion } from "../utils.js";
 
 export default {
     components: {

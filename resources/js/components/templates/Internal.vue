@@ -4,12 +4,24 @@
         <!-- Use v-if to conditionally render InternalHero -->
         <InternalHero v-if="currentPage && $route.path !== '/contact'" :currentPage="currentPage"/>
         <Contact v-if="$route.path === '/contact'"></Contact>
-        <div v-if="$route.path !== '/contact'" class="my-[6rem] justify-center relative flex w-full relative z-[-1]">
+        <div v-if="$route.path !== '/contact' && $route.path !== '/services'" class="my-[6rem] justify-center relative flex w-full relative z-[-1]">
             <div class="w-full max-w-[75%] flex items-center h-full relative z-10 flex-col" v-if="currentPage"
                  v-html="currentPage.content">
             </div>
         </div>
+        <div v-if="$route.path === '/services'" class="my-[6rem] justify-center relative flex w-full relative">
+            <div class="max-w-[75%] flex flex-col lg:flex-row">
+                <div class="flex items-start lg:h-full w-full relative z-10" v-if="currentPage"
+                     v-html="currentPage.content">
+                </div>
+                <Accordion  />
+            </div>
+        </div>
+
         <Clients/>
+        <div class="relative">
+            <Testimonials :home="page"/>
+        </div>
         <Footer :pages="pages"/>
     </div>
 </template>
@@ -17,10 +29,12 @@
 <script>
 import Header from "../layout/Header.vue";
 import Footer from "../layout/Footer.vue";
-import Clients from "../layout/Clients.vue"
+import Clients from "../layout/Clients.vue";
 import Contact from "./Contact.vue";
 import InternalHero from "../layout/InternalHero.vue";
 import axios from "axios";
+import Testimonials from "../layout/Testimonials.vue";
+import Accordion from "../layout/Accordion.vue";
 
 export default {
     components: {
@@ -28,19 +42,30 @@ export default {
         Header,
         Footer,
         Contact,
-        InternalHero
+        InternalHero,
+        Testimonials,
+        Accordion // Register the Accordion component
     },
     name: "Internal",
 
     data() {
         return {
             pages: [],
-            currentPage: null
+            currentPage: null,
+            page: null, // Initialize currentPage to null
         };
     },
 
     mounted() {
         this.fetchPage();
+
+        axios.get('/api/collections/pages/entries/home')
+            .then(response => {
+                this.page = response.data.data;
+            })
+            .catch(error => {
+                console.error('Error fetching page', error);
+            });
     },
 
     watch: {
@@ -61,7 +86,6 @@ export default {
     }
 }
 </script>
-
 
 <style scoped>
 </style>

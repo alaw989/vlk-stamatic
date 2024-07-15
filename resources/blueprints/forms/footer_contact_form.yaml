@@ -1,0 +1,13 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: email_address
+            field:
+              type: text
+              display: 'Email Address'
+      -
+        display: 'New Section'

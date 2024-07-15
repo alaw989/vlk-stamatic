@@ -19,6 +19,10 @@ tabs:
             field:
               type: text
               display: Email
+              input_type: email
+              validate:
+                - required
+                - null
           -
             handle: comments
             field:

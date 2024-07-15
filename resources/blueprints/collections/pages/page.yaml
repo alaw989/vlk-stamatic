@@ -158,44 +158,6 @@ tabs:
                     type: link
                     display: 'Link URL'
           -
-            handle: content_replicator
-            field:
-              type: replicator
-              display: 'Info Square Repeater'
-              instructions: 'Add sets of text, link, textarea, and image fields.'
-              if:
-                is_homepage: true
-              sets:
-                content_set:
-                  display: 'Content Set'
-                  fields:
-                    -
-                      handle: text
-                      field:
-                        type: text
-                        display: 'Text Field'
-                        localizable: true
-                    -
-                      handle: link
-                      field:
-                        type: link
-                        display: 'Link Field'
-                        localizable: true
-                    -
-                      handle: textarea
-                      field:
-                        type: textarea
-                        display: 'Text Area Field'
-                        localizable: true
-                    -
-                      handle: image
-                      field:
-                        type: assets
-                        container: assets
-                        display: Image
-                        max_files: 1
-                        localizable: true
-          -
             handle: paragraph_section_2
             field:
               type: group

@@ -1,13 +1,5 @@
 tree:
   -
-    id: 7a48a8a0-f51c-4d17-b94d-2295d904b1d8
-    title: 'VLK Post'
-    url: /vlk-post
-  -
-    id: f8438835-2582-43ee-9a8e-8dea8f344ef6
-    title: 'Studio Rentals'
-    url: /studio-rentals
-  -
-    id: 3d284b8a-f77a-45c7-abf5-6309bb645006
-    title: 'Events & Classes'
-    url: /events-classes
+    id: 7cddfb69-7f1d-4cbd-a93d-ee1c1da55661
+    title: Services
+    url: /services

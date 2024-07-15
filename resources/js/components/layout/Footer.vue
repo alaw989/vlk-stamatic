@@ -1,17 +1,20 @@
 <template>
-    <div class="bg-[#25375E] w-full  justify-center flex justify-center pb-[4rem] pt-[6rem]">
+    <div class="bg-[#25375E] w-full justify-center flex justify-center pb-[4rem] pt-[6rem]">
         <div class="w-full max-w-[85%] lg:max-w-[75%]">
             <div class="flex flex-col md:flex-row justify-between items-end md:items-center pb-4">
                 <div class="text-[#fff] w-full text-right md:text-right mb-2 md:mb-0">
                     Questions? Contact Us
                 </div>
-                <div class="flex justify-between xl:justify-end">
-                    <input placeholder="Email Address" class="md:ml-4 rounded-sm pl-4 text-md  w-full pr-12 md:pr-0 md:w-[300px]" type="text">
-                    <button
-                        class="ml-2 min-w-[100px] w-full ml-6 max-w-[200px] border-white border-2 text-white text-md lg:text-lg px-4 py-2 rounded-full bg-[#3eb488] hover:bg-white hover:text-[#3eb488]">
-                        Submit
+                <form @submit.prevent="handleSubmit" class="flex justify-between xl:justify-end">
+                    <input v-model="formData.email_address" placeholder="Email Address"
+                           class="md:ml-4 rounded-sm pl-4 text-md w-full pr-12 md:pr-0 md:w-[300px]" type="email" required>
+                    <button type="submit"
+                            class=" ml-2  hidden lg:block text-center cursor-pointer border-2 w-[160px] py-2 rounded-full
+          bg-[#3eb488] border-[#3eb488] text-[#fff] font-bold transition-colors duration-300
+          hover:bg-white hover:text-[#3eb488] hover:border-[#3eb488] hover:no-underline">
+                        {{ buttonText }}
                     </button>
-                </div>
+                </form>
             </div>
             <hr class="mb-4">
             <div class="w-full">
@@ -21,7 +24,7 @@
                             <li class="mb-6 font-bold">VibeLinkRaft</li>
                             <li class="text-white cursor-pointer mb-6" v-for="(menu, menuIndex) in footerNav1"
                                 :key="menuIndex">
-                                <RouterLink :to="menu.page.uri" :class="{ 'text-black': hover && $route.path === '/' }"
+                                <RouterLink :to="menu.page.uri"
                                             class="xl:flex text-white">
                                     {{ menu.page.title }}
                                 </RouterLink>
@@ -33,7 +36,7 @@
                             <li class="mb-6 font-bold">Solutions</li>
                             <li class="text-white cursor-pointer mb-6" v-for="(menu, menuIndex) in footerNav2"
                                 :key="menuIndex">
-                                <RouterLink :to="menu.page.uri" :class="{ 'text-black': hover && $route.path === '/' }"
+                                <RouterLink :to="menu.page.uri"
                                             class=" xl:flex text-white">
                                     {{ menu.page.title }}
                                 </RouterLink>
@@ -45,7 +48,7 @@
                             <li class="mb-6 font-bold">Connect</li>
                             <li class="text-white cursor-pointer mb-6" v-for="(menu, menuIndex) in footerNav3"
                                 :key="menuIndex">
-                                <RouterLink :to="menu.page.uri" :class="{ 'text-black': hover && $route.path === '/' }"
+                                <RouterLink :to="menu.page.uri"
                                             class=" xl:flex text-white">
                                     {{ menu.page.title }}
                                 </RouterLink>
@@ -64,21 +67,19 @@
                         <ul class="text-[#fff] flex flex-col">
                             <li class="mb-6 font-bold">Members</li>
                             <li class="mb-6 text-white">
-                                <RouterLink to="cp/" class="white">Sign In</RouterLink>
+                                <a href="/cp" class="text-white">Sign In</a>
                             </li>
                         </ul>
                     </li>
                 </ul>
             </div>
-            <div class="flex flex-col md:flex-row justify-between items-center mt-6 xl:items-end">
-                <div class="max-w-[250px] mb-4 md:mb-0">
-                    <a href="/">
-                        <img class="xl:block cursor-pointer" :src="imageUrl" alt="Example Image">
-                    </a>
-                </div>
-                <ul class="text-[#fff] flex justify-center flex-col flex-wrap text-sm m-0 items-center md:items-end">
-                    <li class="ml-6 mb-2  text-[12px]"><a href="" class="text-white cursor-pointer hover:underline">VLK Post - an Alford Media Company, is a proud subsidiary of VibeLinKraft.</a></li>
-                    <li class="ml-6 mb-2 text-[12px]"><a href="" class="text-white cursor-pointer hover:underline">© 2024 VibeLinkRaft. All
+            <div class="flex flex-col lg:flex-row justify-center items-center mt-6 ">
+                <ul class="text-[#fff] flex justify-center lg:justify-between w-full flex-wrap text-sm m-0 items-center">
+                    <li class="mb-2  text-[12px]"><a href=""
+                                                     class="w-full text-white text-center cursor-pointer hover:underline">VLK
+                        Post - an Alford Media Company, is a proud subsidiary of VibeLinKraft.</a></li>
+                    <li class="mb-2 text-[12px]"><a href="" class="text-white cursor-pointer hover:underline">© 2024
+                        VibeLinkRaft. All
                         rights reserved.</a></li>
                 </ul>
             </div>
@@ -98,7 +99,13 @@ export default {
             footerNav2: [],
             footerNav3: [],
             footerNav4: [],
-            socialMediaIcons: []
+            socialMediaIcons: [],
+            formData: {
+                email_address: ''
+            },
+            validationErrors: {},
+            submissionSuccess: false,
+            buttonText: 'Submit', // New state for button text
         };
     },
     mounted() {
@@ -130,6 +137,35 @@ export default {
             .catch(error => {
                 console.error('Error fetching data', error);
             });
+    },
+    methods: {
+        handleSubmit() {
+            if (Object.keys(this.validationErrors).length === 0) {
+                this.buttonText = 'Thanks!'; // Change button text to Thanks!
+                axios.post('/!/forms/footer_contact_form', this.formData)
+                    .then(response => {
+                        console.log('Form submitted successfully', response.data);
+                        this.submissionSuccess = true;
+                        this.resetForm(); // Call reset after successful submission
+                    })
+                    .catch(error => {
+                        console.error('Error submitting form', error);
+                        this.submissionSuccess = false;
+                    });
+
+                // Change button text back after 2 seconds
+                setTimeout(() => {
+                    this.buttonText = 'Submit'; // Reset button text
+                }, 2000);
+            } else {
+                console.log('Form has validation errors', this.validationErrors);
+            }
+        },
+        resetForm() {
+            // Reset form fields and validation errors
+            this.formData.email_address = ''; // Reset only the email field
+            this.validationErrors = {};
+        }
     }
 };
 </script>

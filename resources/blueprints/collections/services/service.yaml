@@ -1,0 +1,41 @@
+title: Service
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: services_icon
+            field:
+              container: assets
+              type: assets
+              display: 'Services Icon'
+          -
+            handle: services_link
+            field:
+              type: link
+              display: 'Services Link'
+          -
+            handle: service_description
+            field:
+              type: textarea
+              display: 'Service Description'
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'

@@ -8,10 +8,12 @@
         <div class="content-container w-full">
             <div class="w-full flex justify-center">
                 <div class="flex justify-center flex-col items-center text-center w-full max-w-[75%]">
-                    <h1 v-html="home.paragraph_section_2?.heading" class="text-4xl text-white font-bold mb-4"></h1>
+                    <h1 v-html="home.paragraph_section_2?.heading" class="text-4xl text-white font-bold mb-4 lg:mb-6"></h1>
                     <p class="text-white text-center max-w-[800px]" v-html="home.paragraph_section_2?.body"></p>
-                    <router-link :to="home.paragraph_section_2?.link_url" v-if="home.paragraph_section_2?.link_url">
-                        <button class="text-white text-md lg:text-lg px-4 py-2 mt-6 rounded-full bg-[#3eb488]">
+                    <router-link :to="home.paragraph_section_2?.link_url" v-if="home.paragraph_section_2?.link_url" class="hover:no-underline">
+                        <button class="hidden lg:block text-center cursor-pointer border-2 w-[160px] py-2 rounded-full
+          bg-[#3eb488] border-[#3eb488] text-[#fff] font-bold transition-colors duration-300
+          hover:bg-white hover:text-[#3eb488] hover:border-[#3eb488] hover:no-underline">
                             Learn More
                         </button>
                     </router-link>
@@ -38,7 +40,7 @@ export default {
         }
     },
     mounted() {
-        console.log('homes', this.home);
+
     }
 }
 </script>

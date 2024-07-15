@@ -8,9 +8,14 @@
             <div class="image absolute h-full w-full bg-cover justify-center bg-center right-0 flex"
                  :style="{ backgroundImage: 'url(' + currentPage.assets_field[0].url + ')' }">
                 <div class="absolute inset-0 bg-black opacity-50 z-[1]"></div>
-                <h1 class="text-white w-full max-w-[75%] flex justify-start items-center h-full z-[2]">
-                    {{ currentPage.heading }}
-                </h1>
+                <div class="text-container w-full max-w-[75%] flex flex-col justify-center items-start h-full z-[2]">
+                    <h1 class="text-white">
+                        {{ currentPage.heading }}
+                    </h1>
+                    <p class="text-white">
+                        {{ currentPage.subheading }}
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -48,4 +53,7 @@ export default {
 </script>
 
 <style scoped>
+.text-container {
+    padding-left: 1rem; /* Adjust as needed */
+}
 </style>

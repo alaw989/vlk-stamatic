@@ -22,8 +22,13 @@
                     </li>
                 </ul>
                 <a href="/contact"
-                   class="hidden lg:block text-center cursor-pointer border-2 w-[160px] py-2  rounded-full bg-[#3eb488] border-[#3eb488] text-[#fff] font-bold"
-                  >Get In Touch</a>
+                   class="hidden lg:block text-center cursor-pointer border-2 w-[160px] py-2 rounded-full
+          bg-[#3eb488] border-[#3eb488] text-[#fff] font-bold transition-colors duration-300
+          hover:bg-white hover:text-[#3eb488] hover:border-[#3eb488] hover:no-underline"
+                >
+                    Get In Touch
+                </a>
+
                 <Slide right class="relative bm-vlk lg:hidden">
                     <template #default>
                         <ul>
@@ -58,9 +63,7 @@ export default {
         Slide // Register your component
     },
     computed: {
-        imageUrl() {
-            return this.$route.path === '/' ? this.imageUrl : this.imageUrl;
-        },
+
         headerColor() {
             return this.$route.path === '/' ? 'transparent' : '#25375E';
         },
