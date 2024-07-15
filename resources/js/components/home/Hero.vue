@@ -15,7 +15,7 @@
         </div>
         <div class="absolute inset-0 bg-black opacity-50"></div>
         <div class="flex flex-col absolute z-10 items-start justify-start w-[75%]">
-            <h1 class="text-[48px] max-w-[700px] text-white text-left mb-8 font-bold mt-[205px]">{{ home.heading }}</h1>
+            <h1 class="text-[48px] max-w-[700px] text-white text-left mb-8  mt-[205px]">{{ home.heading }}</h1>
             <p class="mb-[50px] w-full max-w-[600px] text-left text-white hidden lg:block" v-html="home.subheading"></p>
             <div class="flex justify-center">
                 <ul class="flex flex-col justify-between items-center w-full lg:flex-row">
@@ -60,7 +60,11 @@ export default {
             const parallax = document.querySelector('.parallax');
             const scrolled = window.scrollY;
             const rate = 0.5; // Adjust this value to change the speed of the parallax effect
-            parallax.style.transform = `translateY(${scrolled * rate}px) scale(1.2)`;
+
+            if (parallax) {
+                parallax.style.transform = `translateY(${scrolled * rate}px) scale(1.2)`;
+            }
+
         }
     }
 }

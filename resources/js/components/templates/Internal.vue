@@ -2,22 +2,12 @@
     <div>
         <Header/>
         <!-- Use v-if to conditionally render InternalHero -->
-        <InternalHero v-if="currentPage && $route.path !== '/contact'" :currentPage="currentPage"/>
-        <Contact v-if="$route.path === '/contact'"></Contact>
-        <div v-if="$route.path !== '/contact' && $route.path !== '/services'" class="my-[6rem] justify-center relative flex w-full relative z-[-1]">
+        <InternalHero v-if="currentPage" :currentPage="currentPage"/>
+        <div class="my-[6rem] justify-center relative flex w-full relative z-[-1]">
             <div class="w-full max-w-[75%] flex items-center h-full relative z-10 flex-col" v-if="currentPage"
                  v-html="currentPage.content">
             </div>
         </div>
-        <div v-if="$route.path === '/services'" class="my-[6rem] justify-center relative flex w-full relative">
-            <div class="max-w-[75%] flex flex-col lg:flex-row">
-                <div class="flex items-start lg:h-full w-full relative z-10" v-if="currentPage"
-                     v-html="currentPage.content">
-                </div>
-                <Accordion  />
-            </div>
-        </div>
-
         <Clients/>
         <div class="relative">
             <Testimonials :home="page"/>
@@ -30,7 +20,7 @@
 import Header from "../layout/Header.vue";
 import Footer from "../layout/Footer.vue";
 import Clients from "../layout/Clients.vue";
-import Contact from "./Contact.vue";
+import Contact from "../ContactForm.vue";
 import InternalHero from "../layout/InternalHero.vue";
 import axios from "axios";
 import Testimonials from "../layout/Testimonials.vue";

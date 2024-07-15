@@ -24,6 +24,8 @@ h1 {
     font-size: 2.5rem; /* 40px */
     margin-bottom: 1.5rem;
     width: 100%;
+    font-family: "Libre Caslon Text", serif;
+    font-weight: 400;
 }
 
 h2 {
@@ -31,24 +33,32 @@ h2 {
     margin-bottom: 1.25rem;
     width: 100%;
     line-height: 1.6;
+    font-family: "Libre Caslon Text", serif;
+    font-weight: 400;
 }
 
 h3 {
     font-size: 1.75rem; /* 28px */
     margin-bottom: 1rem;
     width: 100%;
+    font-family: "Libre Caslon Text", serif;
+    font-weight: 400;
 }
 
 h4 {
     font-size: 1.5rem; /* 24px */
     margin-bottom: 0.75rem;
     width: 100%;
+    font-family: "Libre Caslon Text", serif;
+    font-weight: 400;
 }
 
 h5 {
     font-size: 1.15rem;
     margin-bottom: 0.50rem;
     width: 100%;
+    font-family: "Libre Caslon Text", serif;
+    font-weight: 400;
 }
 
 /* Paragraph */
@@ -56,6 +66,7 @@ p {
     margin: 0 0 1.5rem 0;
     font-size: 1rem; /* 16px */
     width: 100%;
+    font-family: "Roboto", sans-serif;
 }
 
 /* Links */
@@ -75,6 +86,7 @@ ul, ol {
 
 li {
     margin-bottom: 0.5rem;
+    font-family: "Roboto", sans-serif;
 }
 
 /* Blockquotes */
@@ -92,6 +104,9 @@ code {
     padding: 0.2rem 0.4rem;
     font-family: monospace;
     font-size: 0.9rem;
+}
+button, a, span {
+    font-family: "Roboto", sans-serif;
 }
 
 /* Responsive adjustments */
@@ -125,36 +140,4 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.accordion {
-    width: 100%;
-    overflow: hidden;
-}
 
-.accordion-item {
-    border-top: 1px solid #ddd;
-}
-
-.accordion-header {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    text-align: left;
-    font-size: 16px;
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.3s;
-}
-
-.accordion-header:hover {
-    background-color: #e0e0e0;
-}
-
-.accordion-content {
-    padding: 15px;
-    display: none;
-    background-color: #fff;
-}
-
-.accordion-content p {
-    margin: 0;
-}

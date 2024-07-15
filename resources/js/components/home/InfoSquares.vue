@@ -8,8 +8,7 @@
                         <li v-for="(service, index) in services" :key="service.id" class="flex flex-col justify-between items-center mb-4">
                             <a :href="service?.services_link" class="no-underline flex flex-col items-center">
                                 <img :src="service?.services_icon[0].url" :alt="service.title" class="w-20 h-20 mb-2 transform transition-transform duration-300 hover:scale-110">
-                                <span class="text-xl font-semibold text-center text-white">{{ service.title }}</span>
-                                <p class="text-white text-center" v-html="truncateDescription(service.service_description, 75, service?.services_link)"></p>
+                                <span class="text-xl  text-center text-white">{{ service.title }}</span>
                             </a>
                         </li>
                     </ul>

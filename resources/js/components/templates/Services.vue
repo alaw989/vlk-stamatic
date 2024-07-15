@@ -2,12 +2,14 @@
     <div>
         <Header/>
         <!-- Use v-if to conditionally render InternalHero -->
-        <InternalHero :currentPage="currentPage"/>
+        <InternalHero v-if="currentPage && $route.path !== '/contact'" :currentPage="currentPage"/>
 
-        <div class="my-[6rem] justify-center relative flex w-full relative z-[-1]  ">
-            <div class="w-full max-w-[75%] flex h-full relative z-10">
-                <div class="flex flex-col flex-1" v-html="currentPage?.content"></div>
-                <ContactForm />
+        <div class="my-[6rem] justify-center relative flex w-full relative">
+            <div class="max-w-[75%] flex flex-col lg:flex-row">
+                <div class="flex items-start lg:h-full w-full relative z-10" v-if="currentPage"
+                     v-html="currentPage.content">
+                </div>
+                <Accordion  />
             </div>
         </div>
 
@@ -23,7 +25,7 @@
 import Header from "../layout/Header.vue";
 import Footer from "../layout/Footer.vue";
 import Clients from "../layout/Clients.vue";
-import ContactForm from "../ContactForm.vue";
+import Contact from "../ContactForm.vue";
 import InternalHero from "../layout/InternalHero.vue";
 import axios from "axios";
 import Testimonials from "../layout/Testimonials.vue";
@@ -34,7 +36,7 @@ export default {
         Clients,
         Header,
         Footer,
-        ContactForm,
+        Contact,
         InternalHero,
         Testimonials,
         Accordion // Register the Accordion component

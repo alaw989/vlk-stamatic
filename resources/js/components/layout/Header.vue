@@ -12,7 +12,7 @@
                     </router-link>
                 </div>
                 <ul class="w-3/4 justify-start list-none m-0 hidden lg:flex">
-                    <li class="text-white cursor-pointer" v-for="(page, pageIndex) in pages" :key="pageIndex">
+                    <li class="text-white cursor-pointer flex items-center mb-0" v-for="(page, pageIndex) in pages" :key="pageIndex">
                         <!-- Use router-link instead of anchor tag -->
                         <RouterLink :to="page.page.uri"
                                     :class="{ 'text-black': hover && $route.path === '/' }"
