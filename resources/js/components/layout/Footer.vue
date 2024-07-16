@@ -76,8 +76,8 @@
             </div>
             <div class="flex flex-col lg:flex-row justify-center items-center mt-6 ">
                 <ul class="text-[#fff] flex justify-center lg:justify-between w-full flex-wrap text-sm m-0 items-center">
-                    <li class="mb-2  text-[12px]"><a href="" class="w-full text-white text-center cursor-pointer hover:underline"> {{ disclaimer }}</a></li>
-                    <li class="mb-2 text-[12px]"><a href="" class="text-white cursor-pointer hover:underline">{{ copyright }}</a></li>
+                    <li class="mb-2 text-[12px]"><span class="w-full text-white text-center"> {{ disclaimer }}</span></li>
+                    <li class="mb-2 text-[12px]"><span class="text-white">{{ copyright }}</span></li>
                 </ul>
             </div>
         </div>
