@@ -13,11 +13,11 @@
             </template>
         </div>
         <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="flex flex-col absolute z-10 items-start justify-start w-[75%]">
-            <h1 class="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] max-w-[700px] text-white text-left mb-8 mt-[205px]">
+        <div class="flex flex-col absolute z-10 items-start justify-start w-[75%] text-container">
+            <h1 class="parallax-text text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] max-w-[700px] text-white text-left mb-8 mt-[205px]">
                 {{ home.heading }}
             </h1>
-            <p class="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] mb-[50px] w-full max-w-[600px] text-left text-white hidden lg:block" v-html="home.subheading"></p>
+            <p class="parallax-text text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] mb-[50px] w-full max-w-[600px] text-left text-white hidden lg:block" v-html="home.subheading"></p>
             <div class="flex justify-center">
                 <ul class="flex flex-col justify-between items-center w-full lg:flex-row">
                     <li v-for="(square, index) in home.hero_squares" :key="index"
@@ -65,6 +65,12 @@ export default {
             if (parallax) {
                 parallax.style.transform = `translateY(${scrolled * rate}px) scale(1.2)`;
             }
+
+            const parallaxTexts = document.querySelectorAll('.parallax-text');
+            parallaxTexts.forEach((element) => {
+                const textRate = 0.2; // Adjust this value to change the speed of the parallax effect for the text
+                element.style.transform = `translateY(${scrolled * textRate}px)`;
+            });
         }
     }
 }
@@ -88,6 +94,14 @@ export default {
 }
 
 .parallax {
-    transform: translateY(-100px) scale(1.2); /* Adjust the translateY value and scale as needed */
+    transform: translateY(0px) scale(1.2); /* Adjust the translateY value and scale as needed */
+}
+
+.text-container {
+    will-change: transform;
+}
+
+.parallax-text {
+    will-change: transform;
 }
 </style>
