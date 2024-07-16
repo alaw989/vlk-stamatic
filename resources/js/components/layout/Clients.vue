@@ -4,7 +4,7 @@
         <div class="w-full">
             <div class="w-full flex justify-center">
                 <div class="flex justify-center flex-col items-center text-center w-full max-w-[90%] md:max-w-[75%]">
-                    <h1 class="text-2xl md:text-4xl font-bold mb-4 md:mb-6 text-black"
+                    <h1 class="text-2xl md:text-4xl font-bold text-black m-0"
                         :class="route.path !== '/' ? 'text-white' : 'text-black'">{{ clientsHeading }}</h1>
                     <carousel :breakpoints="breakpoints" :wrap-around="true" :autoplay="3000" :items-to-show="2">
                         <slide v-for="item in clients" :key="item.id">

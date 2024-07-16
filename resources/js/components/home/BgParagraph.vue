@@ -7,7 +7,7 @@
             <div class="w-full flex justify-center absolute  z-[-1]">
                 <div class="flex justify-center flex-col items-center text-center w-full max-w-[75%] z-[-1] relative">
                     <h1 v-html="home.paragraph_section_1?.heading"
-                        class="text-4xl text-black font-bold mb-4 lg:mb-6"></h1>
+                        class="text-2xl md:text-4xl text-black font-bold mb-4 lg:mb-6"></h1>
                     <p class="text-black text-center max-w-[800px]" v-html="home.paragraph_section_1?.body"></p>
                     <router-link :to="home.paragraph_section_1.link_url" v-if="home.paragraph_section_1.link_url"
                                  class="hover:no-underline">

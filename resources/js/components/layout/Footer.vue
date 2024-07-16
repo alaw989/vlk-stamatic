@@ -7,7 +7,8 @@
                 </div>
                 <form @submit.prevent="handleSubmit" class="flex justify-between xl:justify-end">
                     <input v-model="formData.email_address" placeholder="Email Address"
-                           class="md:ml-4 rounded-sm pl-4 text-md w-full pr-12 md:pr-0 md:w-[300px]" type="email" required>
+                           class="md:ml-4 rounded-sm pl-4 text-md w-full pr-12 md:pr-0 md:w-[300px]" type="email"
+                           required>
                     <button type="submit"
                             class=" ml-2  lg:block text-center cursor-pointer border-2 w-[160px] py-2 rounded-full
           bg-[#3eb488] border-[#3eb488] text-[#fff] font-bold transition-colors duration-300
@@ -75,12 +76,8 @@
             </div>
             <div class="flex flex-col lg:flex-row justify-center items-center mt-6 ">
                 <ul class="text-[#fff] flex justify-center lg:justify-between w-full flex-wrap text-sm m-0 items-center">
-                    <li class="mb-2  text-[12px]"><a href=""
-                                                     class="w-full text-white text-center cursor-pointer hover:underline">VLK
-                        Post - an Alford Media Company, is a proud subsidiary of VibeLinKraft.</a></li>
-                    <li class="mb-2 text-[12px]"><a href="" class="text-white cursor-pointer hover:underline">© 2024
-                        VibeLinkRaft. All
-                        rights reserved.</a></li>
+                    <li class="mb-2  text-[12px]"><a href="" class="w-full text-white text-center cursor-pointer hover:underline"> {{ disclaimer }}</a></li>
+                    <li class="mb-2 text-[12px]"><a href="" class="text-white cursor-pointer hover:underline">{{ copyright }}</a></li>
                 </ul>
             </div>
         </div>
@@ -99,6 +96,8 @@ export default {
             footerNav2: [],
             footerNav3: [],
             footerNav4: [],
+            copyright: "",
+            disclaimer: "",
             socialMediaIcons: [],
             formData: {
                 email_address: ''
@@ -126,12 +125,22 @@ export default {
 
                 const globalsData = responses[4].data.data.find(item => item.handle === 'company');
 
-                if (globalsData && globalsData.social_media_icons) {
-                    this.socialMediaIcons = globalsData.social_media_icons;
-                }
+                if (globalsData) {
+                    if (globalsData.social_media_icons) {
+                        this.socialMediaIcons = globalsData.social_media_icons;
+                    }
 
-                if (globalsData && globalsData.logo) {
-                    this.imageUrl = globalsData.logo.url;
+                    if (globalsData.logo) {
+                        this.imageUrl = globalsData.logo.url;
+                    }
+
+                    if (globalsData.copyright) {
+                        this.copyright = globalsData.copyright
+                    }
+
+                    if (globalsData.disclaimer) {
+                        this.disclaimer = globalsData.disclaimer
+                    }
                 }
             })
             .catch(error => {

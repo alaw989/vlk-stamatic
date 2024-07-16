@@ -15,7 +15,7 @@ tabs:
             handle: textarea_field
             field:
               type: textarea
-              display: 'Address'
+              display: Address
           -
             handle: social_media_icons
             field:
@@ -42,5 +42,14 @@ tabs:
                           handle: code
                           field:
                             type: code
-                            display: SVG Icon
-
+                            display: 'SVG Icon'
+          -
+            handle: disclaimer
+            field:
+              type: text
+              display: Disclaimer
+          -
+            handle: copyright
+            field:
+              type: text
+              display: Copyright

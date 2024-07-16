@@ -16,7 +16,7 @@
         <div class="relative">
             <BgParagraph2 :home="page"/>
         </div>
-        <div class="relative ">
+        <div class="relative">
             <Testimonials :home="page" />
         </div>
         <div class="relative">

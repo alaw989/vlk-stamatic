@@ -80,15 +80,14 @@ export default {
 
 <style scoped>
 .parallax-container {
-    height: 500px; /* Adjust height as needed */
+    height: 350px;
     position: relative;
     overflow: hidden;
 }
 
 .parallax-background {
-    min-height: 500px;
+    min-height: 350px;
     width: 100%;
-    /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -102,7 +101,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%; /* Ensure content container covers the entire parallax container */
+    height: 100%;
 }
 
 .testimonial-slide {
