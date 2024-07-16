@@ -2,7 +2,6 @@
     <div v-if="home" class="w-full flex justify-center hero items-center relative z-0 top-0">
         <!-- Parallax background container -->
         <div class="parallax-container">
-            <!-- Render video or image based on the type of asset -->
             <template v-if="isVideo">
                 <video class="parallax w-full h-full object-cover" autoplay muted loop>
                     <source :src="home.assets_field[0].url" type="video/mp4">
@@ -15,8 +14,10 @@
         </div>
         <div class="absolute inset-0 bg-black opacity-50"></div>
         <div class="flex flex-col absolute z-10 items-start justify-start w-[75%]">
-            <h1 class="text-[48px] max-w-[700px] text-white text-left mb-8  mt-[205px]">{{ home.heading }}</h1>
-            <p class="mb-[50px] w-full max-w-[600px] text-left text-white hidden lg:block" v-html="home.subheading"></p>
+            <h1 class="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] max-w-[700px] text-white text-left mb-8 mt-[205px]">
+                {{ home.heading }}
+            </h1>
+            <p class="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] mb-[50px] w-full max-w-[600px] text-left text-white hidden lg:block" v-html="home.subheading"></p>
             <div class="flex justify-center">
                 <ul class="flex flex-col justify-between items-center w-full lg:flex-row">
                     <li v-for="(square, index) in home.hero_squares" :key="index"
@@ -64,20 +65,14 @@ export default {
             if (parallax) {
                 parallax.style.transform = `translateY(${scrolled * rate}px) scale(1.2)`;
             }
-
         }
     }
 }
 </script>
 
-<style lang="scss"scoped>
-
+<style lang="scss" scoped>
 .hero {
-    height: calc(100vh -   78.9844px);
-
-   @media (min-width: 1025px) {
-       height: calc(100vh -   78.9844px);
-   }
+    height: calc(100vh - 78.9844px);
 }
 
 .parallax-container {
