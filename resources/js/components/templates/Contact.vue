@@ -4,7 +4,7 @@
         <!-- Use v-if to conditionally render InternalHero -->
         <InternalHero :currentPage="currentPage"/>
 
-        <div class="my-[6rem] justify-center relative flex w-full relative z-[-1]  ">
+        <div class="my-[6rem] justify-center relative flex w-full relative z-0">
             <div class="w-full max-w-[75%] flex h-full relative z-10">
                 <div class="flex flex-col flex-1" v-html="currentPage?.content"></div>
                 <ContactForm />
