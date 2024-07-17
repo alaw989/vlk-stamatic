@@ -88,7 +88,7 @@ export default {
         },
         handleSubmit() {
             if (Object.keys(this.validationErrors).length === 0) {
-                this.buttonText = 'Thanks!'; // Change button text to Thanks!
+                this.buttonText = 'Thanks!';
                 axios.post('/!/forms/contact_form', this.formData)
                     .then(response => {
                         console.log('Form submitted successfully', response.data);

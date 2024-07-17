@@ -5,7 +5,7 @@
         <InternalHero :currentPage="currentPage"/>
 
         <div class="my-[6rem] justify-center relative flex w-full relative z-0">
-            <div class="w-full max-w-[75%] flex h-full relative z-10">
+            <div class="w-full max-w-[75%] flex flex-col md:flex-row h-full relative z-10">
                 <div class="flex flex-col flex-1" v-html="currentPage?.content"></div>
                 <ContactForm />
             </div>
