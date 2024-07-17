@@ -16,12 +16,12 @@ paragraph_section_2:
   link_text: null
   link_url: null
 updated_by: 3cde8979-9e2c-4235-8275-1b6545aee897
-updated_at: 1721011612
+updated_at: 1721240169
 parent: home
 ---
 <div class="flex flex-col lg:flex-row justify-center align-center "> 
   <div class="flex-1 lg:pr-[6rem]">
                 <h1 class="mb-6">Our Services</h2>
-             <img src="/assets/about-page-background.jpg" class="mb-6 object-cover">  
+             <img src="/assets/about-page-background.jpg" class="mb-6 object-cover rounded-md">  
   </div>
 </div>

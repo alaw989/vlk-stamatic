@@ -5,7 +5,7 @@ is_homepage: false
 template: layout
 title: About
 updated_by: 3cde8979-9e2c-4235-8275-1b6545aee897
-updated_at: 1721007072
+updated_at: 1721240129
 assets_field:
   - about-page-background.jpg
 paragraph_section_1:
@@ -44,13 +44,13 @@ heading: 'Elevating stories through expert post-production.'
                         </p>
   </div>
     <div class="flex-1 flex">
-      <img src="/assets/post-image.jpeg" class="mb-6 object-cover">  
+      <img src="/assets/post-image.jpeg" class="mb-6 object-cover rounded-md">  
   </div>
 </div>
 <div class="flex flex-col lg:flex-row justify-between align-center"> 
       <div class="flex-1 flex flex-col">
-      <img src="/assets/video-course.jpeg" class="mb-[4rem] object-cover">  
-         <img src="/assets/post-production-workflow-img.png" class="mb-[4rem] object-cover"> 
+      <img src="/assets/video-course.jpeg" class="mb-[4rem] object-cover rounded-md">  
+         <img src="/assets/post-production-workflow-img.png" class="mb-[4rem] object-cover rounded-md"> 
   </div>
   <div class="flex-1  lg:pl-[6rem] flex  flex-col">
                 <h2>Our Why</h2>
