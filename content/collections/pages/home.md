@@ -5,7 +5,7 @@ title: Home
 template: home
 author: 3cde8979-9e2c-4235-8275-1b6545aee897
 updated_by: 3cde8979-9e2c-4235-8275-1b6545aee897
-updated_at: 1720737715
+updated_at: 1721846913
 is_homepage: true
 content_replicator:
   -
@@ -49,7 +49,7 @@ assets_field:
   - home-page-background.png
 mission_statement: 'Our mission at VibeLinKraft is to cultivate an inclusive environment where filmmakers and creatives can learn, grow, and connect within the challenging landscape of the industry. We offer industry-leading education, engaging community events, and professional resources to support every stage of your creative journey.'
 paragraph_section_1:
-  heading: 'Our approach'
+  heading: 'Our Approach'
   body: "Rooted in collaboration, creativity, and commitment, we believe that the best stories are born from strong partnerships and innovative thinking. Our team of experienced editors, designers, and artists work closely with you at every stage of the post-production process to ensure your vision is realized to its fullest potential. We view our clients as creative partners. Our passion for storytelling drives us to push the boundaries of creativity. Whether it's perfecting the color grade, enhancing sound design, or creating stunning visual editing, we strive for excellence in every frame."
   background_image: null
   link_text: 'Learn More'
@@ -83,11 +83,11 @@ fifty_fifty_repeater:
     type: content_set
     enabled: true
 paragraph_section_2:
-  heading: 'An Alford Media Post Production Company'
-  body: 'As a proud subsidiary of Alford Media, VLK Post benefits from the support and expertise of a renowned leader in the media industry. Alford Media’s legacy of innovation, quality, and customer service aligns perfectly with our mission to deliver top-tier post-production services.'
+  heading: 'An Alford Media & Post Production Company'
+  body: 'As a proud subsidiary of Alford Media & Post Production, VLK Post House benefits from the support and expertise of a renowned leader in the media industry. AMPP’s legacy of innovation, quality, and customer service aligns perfectly with our mission to deliver top-tier post-production services.'
   background_image: about-page-background.jpg
   link_text: 'Check Out Alford Media'
-  link_url: 'entry::961a9ecd-8411-4eb0-8059-4f727132fa08'
+  link_url: 'http://www.alfordpost.com'
 clients:
   heading: 'Our Clients'
   replicator_field:

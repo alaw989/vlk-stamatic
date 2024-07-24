@@ -5,11 +5,12 @@
         <InternalHero v-if="currentPage && $route.path !== '/contact'" :currentPage="currentPage"/>
 
         <div class="my-[6rem] justify-center relative flex w-full relative">
-            <div class="max-w-[75%] flex flex-col lg:flex-row">
+            <div class="max-w-[75%] flex flex-col-reverse lg:flex-row">
+                <Accordion  />
                 <div class="flex items-start lg:h-full w-full relative" v-if="currentPage"
                      v-html="currentPage.content">
                 </div>
-                <Accordion  />
+
             </div>
         </div>
 

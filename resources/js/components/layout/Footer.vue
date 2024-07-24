@@ -57,7 +57,7 @@
                             <li class="flex">
                                 <ul class="flex">
                                     <li v-for="(icon, index) in socialMediaIcons" :key="index"
-                                        class="max-w-[25px] mr-2">
+                                        class="max-w-[30px] mr-2">
                                         <a :href="icon.link" v-html="icon.code.value" target="_blank"></a>
                                     </li>
                                 </ul>

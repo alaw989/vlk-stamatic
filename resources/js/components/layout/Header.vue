@@ -12,7 +12,8 @@
                     </router-link>
                 </div>
                 <ul class="w-3/4 justify-start list-none m-0 hidden lg:flex">
-                    <li class="text-white cursor-pointer flex items-center mb-0" v-for="(page, pageIndex) in pages" :key="pageIndex">
+                    <li class="text-white cursor-pointer flex items-center mb-0" v-for="(page, pageIndex) in pages"
+                        :key="pageIndex">
                         <!-- Use router-link instead of anchor tag -->
                         <RouterLink :to="page.page.uri"
                                     :class="{ 'text-black': hover && $route.path === '/' }"
@@ -21,25 +22,32 @@
                         </RouterLink>
                     </li>
                 </ul>
-                <a href="/contact"
-                   class="hidden lg:block text-center cursor-pointer border-2 w-[160px] py-2 rounded-full
+                <div class="flex items-center">
+                    <ul class="flex m-0">
+                        <li v-for="(icon, index) in socialMediaIcons" :key="index"
+                            class="social w-[20px] lg:w-[30px] mr-2 mb-0">
+                            <a :href="icon.link" v-html="icon.code.value" target="_blank"></a>
+                        </li>
+                    </ul>
+                    <a href="/contact"
+                       class="hidden lg:block text-center cursor-pointer border-2 w-[160px] py-2 rounded-full
           bg-[#3eb488] border-[#3eb488] text-[#fff] font-bold transition-colors duration-300
           hover:bg-white hover:text-[#3eb488] hover:border-[#3eb488] hover:no-underline"
-                >
-                    Get In Touch
-                </a>
-
-                <Slide right class="relative bm-vlk lg:hidden">
-                    <template #default>
-                        <ul>
-                            <li v-for="(page, pageIndex) in pages" :key="pageIndex">
-                                <RouterLink :to="page.page.uri">
-                                    {{ page.page.title }}
-                                </RouterLink>
-                            </li>
-                        </ul>
-                    </template>
-                </Slide>
+                    >
+                        Get In Touch
+                    </a>
+                    <Slide right class="relative bm-vlk lg:hidden">
+                        <template #default>
+                            <ul>
+                                <li v-for="(page, pageIndex) in pages" :key="pageIndex">
+                                    <RouterLink :to="page.page.uri">
+                                        {{ page.page.title }}
+                                    </RouterLink>
+                                </li>
+                            </ul>
+                        </template>
+                    </Slide>
+                </div>
             </div>
         </div>
     </header>
@@ -57,13 +65,13 @@ export default {
             hover: false,
             imageUrl: '',
             whiteImageUrl: '',
+            socialMediaIcons: ''
         };
     },
     components: {
         Slide // Register your component
     },
     computed: {
-
         headerColor() {
             return this.$route.path === '/' ? 'transparent' : '#25375E';
         },
@@ -80,6 +88,9 @@ export default {
         axios.get('/api/globals')
             .then(response => {
                 const companyData = response.data.data.find(item => item.handle === 'company');
+
+                console.log('globals', response.data.data[0].social_media_icons)
+                this.socialMediaIcons = response.data.data[0].social_media_icons
 
                 if (companyData && companyData.logo) {
                     this.imageUrl = companyData.logo.url;
@@ -107,6 +118,7 @@ export default {
 
     .bm-menu {
         background-color: #3eb488;
+
         nav {
             ul {
                 li {
@@ -130,6 +142,13 @@ header {
 @media (min-width: 1024px) {
     .bm-vlk {
         display: none;
+    }
+}
+
+
+.social {
+    svg {
+        fill: #25375E;
     }
 }
 </style>
