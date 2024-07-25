@@ -28,6 +28,12 @@ tabs:
             field:
               type: textarea
               display: 'Service Description'
+          -
+            handle: service_image
+            field:
+              container: assets
+              type: assets
+              display: 'Service Image'
   sidebar:
     display: Sidebar
     sections:

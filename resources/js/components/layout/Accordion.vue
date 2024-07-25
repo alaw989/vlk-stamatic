@@ -13,6 +13,7 @@
                 @transitionend="handleTransitionEnd(index)"
             >
                 <p class="text-md">{{ item?.service_description || 'No description available' }}</p>
+                <img v-if="item.service_image[0]" class="rounded-md" :src="item.service_image[0].url" alt="">
             </div>
         </div>
     </div>
@@ -34,6 +35,7 @@ export default {
         axios.get('/api/collections/services/entries')
             .then(response => {
                 this.services = response.data.data; // Ensure the correct path to the data
+                console.log(this.services)
             })
             .catch(error => {
                 console.error('Error fetching services', error);

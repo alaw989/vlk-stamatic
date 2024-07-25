@@ -88,8 +88,6 @@ export default {
         axios.get('/api/globals')
             .then(response => {
                 const companyData = response.data.data.find(item => item.handle === 'company');
-
-                console.log('globals', response.data.data[0].social_media_icons)
                 this.socialMediaIcons = response.data.data[0].social_media_icons
 
                 if (companyData && companyData.logo) {

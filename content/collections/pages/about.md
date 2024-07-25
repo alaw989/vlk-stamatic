@@ -5,7 +5,7 @@ is_homepage: false
 template: layout
 title: About
 updated_by: 3cde8979-9e2c-4235-8275-1b6545aee897
-updated_at: 1721856595
+updated_at: 1721938336
 assets_field:
   - about-page-background.jpg
 paragraph_section_1:
@@ -32,8 +32,8 @@ clients:
   learn_more_link: null
 heading: 'Elevating stories through expert post-production.'
 ---
-<div class="flex flex-col lg:flex-row justify-center align-center lg:mb-[6rem]">
-    <div class="flex-1 mb-[6rem] lg:pr-[6rem]">
+<div class="flex flex-col lg:flex-row justify-center align-center mb-[6rem]">
+    <div class="flex-1 lg:pr-[6rem]">
         <h2>Your Vision,<br> Our Expertise</h2>
         <p class="w-full ">At VLK Post, we are dedicated to transforming raw footage into captivating
             stories with precision and creativity.
@@ -52,19 +52,19 @@ heading: 'Elevating stories through expert post-production.'
     </div>
 </div>
 
-<div class="flex flex-col-reverse lg:flex-row justify-center align-center lg:mb-[6rem]">
+<div class="flex flex-col-reverse lg:flex-row justify-center align-center mb-6 lg:mb-[6rem]">
     <div class="flex-1 flex">
         <img src="/assets/post-image.jpeg" class="mb-6 object-cover rounded-md">
     </div>
-    <div class="flex-1 mb-[6rem] lg:pl-[6rem]">
+    <div class="flex-1  lg:pl-[6rem]">
         <h2>Our Why</h2>
         <p class="w-full ">At VLK Post, our driving force is the belief that every story deserves to be told with
             passion and precision. Our "why" is rooted in several core principles:</p>
     </div>
 </div>
 
-<div class="flex flex-col lg:flex-row justify-center align-center lg:mb-[6rem]">
-    <div class="flex-1 mb-[6rem] lg:pr-[6rem]">
+<div class="flex flex-col lg:flex-row justify-center align-center mb-6 lg:mb-[6rem]">
+    <div class="flex-1 lg:pr-[6rem]">
         <h3>
             Passion for Storytelling
         </h3>
@@ -80,11 +80,11 @@ heading: 'Elevating stories through expert post-production.'
     </div>
 </div>
 
-<div class="flex flex-col lg:flex-row justify-center align-center lg:mb-[6rem]">
+<div class="flex flex-col-reverse lg:flex-row justify-center align-center mb-6 lg:mb-[6rem]">
     <div class="flex-1 flex">
         <img src="/assets/post-image.jpeg" class="mb-6 object-cover rounded-md">
     </div>
-    <div class="flex-1 mb-[6rem] lg:pl-[6rem]">
+    <div class="flex-1  lg:pl-[6rem]">
         <h3>
             Commitment to Excellence
         </h3>
@@ -96,8 +96,8 @@ heading: 'Elevating stories through expert post-production.'
     </div>
 </div>
 
-<div class="flex flex-col lg:flex-row justify-center align-center lg:mb-[6rem]">
-    <div class="flex-1 mb-[6rem] lg:pr-[6rem]">
+<div class="flex flex-col lg:flex-row justify-center align-center mb-6 lg:mb-[6rem]">
+    <div class="flex-1  lg:pr-[6rem]">
         <h3>
             Fostering Creativity
         </h3>
@@ -112,11 +112,11 @@ heading: 'Elevating stories through expert post-production.'
     </div>
 </div>
 
-<div class="flex flex-col-reverse lg:flex-row justify-center align-center lg:mb-[6rem]">
+<div class="flex flex-col-reverse lg:flex-row justify-center align-center mb-6 lg:mb-[6rem]">
     <div class="flex-1 flex">
         <img src="/assets/post-image.jpeg" class="mb-6 object-cover rounded-md">
     </div>
-    <div class="flex-1 mb-[6rem] lg:pl-[6rem]">
+    <div class="flex-1  lg:pl-[6rem]">
         <h3>
             Building Community
         </h3>
@@ -128,8 +128,8 @@ heading: 'Elevating stories through expert post-production.'
     </div>
 </div>
 
-<div class="flex flex-col lg:flex-row justify-center align-center lg:mb-[6rem]">
-    <div class="flex-1 mb-[6rem] lg:pr-[6rem]">
+<div class="flex flex-col lg:flex-row justify-center align-center mb-6 lg:mb-[6rem]">
+    <div class="flex-1 lg:pr-[6rem]">
         <h3>
             Embracing Diversity and Accessibility
         </h3>
