@@ -1,7 +1,7 @@
 <template>
     <div class="accordion">
-        <div class="cursor-pointer border-b z-1 " v-for="(item, index) in services" :key="item.id">
-            <button class="accordion cursor-pointer flex justify-between " @click="toggleAccordion(index)">
+        <div class="cursor-pointer border-b z-1" v-for="(item, index) in services" :key="item.id">
+            <button class="accordion cursor-pointer flex justify-between" @click="toggleAccordion(index)">
                 <span class="text-xl">{{ item.title }}</span>
                 <span class="text-xl">{{ activeIndex === index ? '−' : '+' }}</span>
             </button>
@@ -9,11 +9,11 @@
                 class="panel"
                 :class="{ 'active': activeIndex === index }"
                 ref="panels"
-                :style="{ maxHeight: activeIndex === index ? panelHeight : '0px' }"
+                :style="{ maxHeight: activeIndex === index ? panelHeights[index] : '0px' }"
                 @transitionend="handleTransitionEnd(index)"
             >
                 <p class="text-md">{{ item?.service_description || 'No description available' }}</p>
-                <img  class="rounded-md" :src="item.service_image[0]?.url" alt="">
+                <img class="rounded-md" :src="item.service_image[0]?.url" alt="" @load="imageLoaded(index)">
             </div>
         </div>
     </div>
@@ -28,7 +28,7 @@ export default {
         return {
             activeIndex: null,
             services: [],
-            panelHeight: '0px',
+            panelHeights: [], // Store heights for each panel
             selectedService: null
         };
     },
@@ -36,6 +36,9 @@ export default {
         axios.get('/api/collections/services/entries')
             .then(response => {
                 this.services = response.data.data;
+
+                // Initialize panel heights array with zero height
+                this.panelHeights = this.services.map(() => '0px');
 
                 // Check for selected service in local storage and set active index
                 const selectedServiceData = JSON.parse(localStorage.getItem('selectedService'));
@@ -46,7 +49,6 @@ export default {
                         this.setPanelHeight(this.activeIndex);
                     });
                 }
-
             })
             .catch(error => {
                 console.error('Error fetching services', error);
@@ -61,10 +63,16 @@ export default {
             localStorage.setItem('selectedService', JSON.stringify({ index: this.activeIndex }));
         },
         setPanelHeight(index) {
-            const panel = this.$refs.panels[index];
-            if (panel) {
-                this.panelHeight = this.activeIndex === index ? `${panel.scrollHeight}px` : '0px';
-            }
+            this.$nextTick(() => {
+                const panel = this.$refs.panels[index];
+                if (panel) {
+                    this.panelHeights.splice(index, 1, this.activeIndex === index ? `${panel.scrollHeight}px` : '0px');
+                }
+            });
+        },
+        imageLoaded(index) {
+            // Recalculate panel height when image is loaded
+            this.setPanelHeight(index);
         },
         handleTransitionEnd(index) {
             // Additional logic can go here if needed

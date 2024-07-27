@@ -1,5 +1,5 @@
 <template>
-    <div v-if="home" class="w-full flex justify-center">
+    <div v-if="home" class="w-full flex justify-center info-squares">
         <div class="w-full max-w-[75%]">
             <div class="flex justify-center flex-col items-center relative">
                 <h1 class="text-2xl md:text-4xl text-black font-bold text-center mb-4 lg:mb-[2rem] text-white">What We Do</h1>
@@ -61,5 +61,12 @@ export default {
 <style lang="scss" scoped>
 a {
     text-decoration: none;
+}
+
+.info-squares {
+    background-image: linear-gradient(180deg, rgba(37, 55, 94, .65), rgba(37, 55, 94, .65)), url(/images/pattern-dark.svg);
+    background-position: 0 0, 50% 100%;
+    background-size: auto, 400px;
+    background-color: #25375E;
 }
 </style>

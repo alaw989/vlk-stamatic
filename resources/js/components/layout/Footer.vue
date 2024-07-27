@@ -1,84 +1,40 @@
 <template>
-    <div class="bg-[#25375E] w-full justify-center flex justify-center pb-[4rem] pt-[6rem]">
+    <div class="bg-[#25375E] w-full flex flex-col items-center py-8 footer">
         <div class="w-full max-w-[85%] lg:max-w-[75%]">
-            <div class="flex flex-col md:flex-row justify-between items-end md:items-center pb-4">
-                <div class="text-[#fff] w-full text-right md:text-right mb-2 md:mb-0">
+            <div class="flex flex-col md:flex-row justify-between items-center pb-4">
+                <div class="text-white w-full text-center md:text-right mb-2 md:mb-0 mr-2   md:border-r-[1px] pr-2">
                     Questions? Contact Us
                 </div>
-                <form @submit.prevent="handleSubmit" class="flex justify-between xl:justify-end">
+                <form @submit.prevent="handleSubmit" class="flex items-center w-full md:w-[unset]">
                     <input v-model="formData.email_address" placeholder="Email Address"
-                           class="md:ml-4 rounded-sm pl-4 text-md w-full pr-12 md:pr-0 md:w-[300px]" type="email"
+                           class="rounded-sm pl-4 text-md w-full md:w-[300px] pr-4 py-2" type="email"
                            required>
                     <button type="submit"
-                            class=" ml-2  lg:block text-center cursor-pointer border-2 w-[160px] py-2 rounded-full
-          bg-[#3eb488] border-[#3eb488] text-[#fff] font-bold transition-colors duration-300
-          hover:bg-white hover:text-[#3eb488] hover:border-[#3eb488] hover:no-underline">
+                            class="ml-2 text-center cursor-pointer border-2 w-[160px] py-2 rounded-full
+                                bg-[#3eb488] border-[#3eb488] text-white font-bold transition-colors duration-300
+                                hover:bg-white hover:text-[#3eb488]">
                         {{ buttonText }}
                     </button>
                 </form>
             </div>
-            <hr class="mb-4">
-            <div class="w-full">
-                <ul class="flex flex-wrap justify-start sm:justify-between">
-                    <li class="mr-6">
-                        <ul class="text-[#fff] flex flex-col">
-                            <li class="mb-6 font-bold">VibeLinkRaft</li>
-                            <li class="text-white cursor-pointer mb-6" v-for="(menu, menuIndex) in footerNav1"
-                                :key="menuIndex">
-                                <RouterLink :to="menu.page.uri"
-                                            class="xl:flex text-white">
-                                    {{ menu.page.title }}
-                                </RouterLink>
-                            </li>
-                        </ul>
+            <hr class="mb-4 border-gray-600">
+            <div class="w-full flex justify-between">
+                <ul class="text-white flex flex-col   justify-center md:justify-start">
+                    <li v-for="(menu, menuIndex) in footerNav1" :key="menuIndex" class="mb-2 md:mr-4 no-underline flex items-center">
+                        <a :href="menu.page.uri" class="hover:text-[#3eb488] no-underline text-white transition-colors">
+                            {{ menu.page.title }}
+                        </a>
                     </li>
-                    <li>
-                        <ul class="text-[#fff] flex flex-col">
-                            <li class="mb-6 font-bold">Solutions</li>
-                            <li class="text-white cursor-pointer mb-6" v-for="(menu, menuIndex) in footerNav2"
-                                :key="menuIndex">
-                                <RouterLink :to="menu.page.uri"
-                                            class=" xl:flex text-white">
-                                    {{ menu.page.title }}
-                                </RouterLink>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <ul class="text-[#fff] flex flex-col">
-                            <li class="mb-6 font-bold">Connect</li>
-                            <li class="text-white cursor-pointer mb-6" v-for="(menu, menuIndex) in footerNav3"
-                                :key="menuIndex">
-                                <RouterLink :to="menu.page.uri"
-                                            class=" xl:flex text-white">
-                                    {{ menu.page.title }}
-                                </RouterLink>
-                            </li>
-                            <li class="flex">
-                                <ul class="flex">
-                                    <li v-for="(icon, index) in socialMediaIcons" :key="index"
-                                        class="max-w-[30px] mr-2">
-                                        <a :href="icon.link" v-html="icon.code.value" target="_blank"></a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <ul class="text-[#fff] flex flex-col">
-                            <li class="mb-6 font-bold">Members</li>
-                            <li class="mb-6 text-white">
-                                <a href="/cp" class="text-white">Sign In</a>
-                            </li>
-                        </ul>
+                </ul>
+                <ul class="flex justify-center md:justify-end">
+                    <li v-for="(icon, index) in socialMediaIcons" :key="index" class="mr-2 w-[40px]">
+                        <a :href="icon.link" v-html="icon.code.value" target="_blank" class="text-white hover:text-[#3eb488] transition-colors"></a>
                     </li>
                 </ul>
             </div>
-            <div class="flex flex-col lg:flex-row justify-center items-center mt-6 ">
-                <ul class="text-[#fff] flex justify-center lg:justify-between w-full flex-wrap text-sm m-0 items-center">
-                    <li class="mb-2 text-[12px]"><span class="w-full text-white text-center"> {{ disclaimer }}</span></li>
-                    <li class="mb-2 text-[12px]"><span class="text-white">{{ copyright }}</span></li>
-                </ul>
+            <div class="flex flex-col lg:flex-row justify-center items-center mt-4 text-xs text-gray-400">
+                <div class="text-center lg:text-left lg:mr-4">{{ disclaimer }}</div>
+                <div class="text-center lg:text-right">{{ copyright }}</div>
             </div>
         </div>
     </div>
@@ -93,9 +49,7 @@ export default {
         return {
             imageUrl: '',
             footerNav1: [],
-            footerNav2: [],
-            footerNav3: [],
-            footerNav4: [],
+
             copyright: "",
             disclaimer: "",
             socialMediaIcons: [],
@@ -104,26 +58,19 @@ export default {
             },
             validationErrors: {},
             submissionSuccess: false,
-            buttonText: 'Submit', // New state for button text
+            buttonText: 'Submit',
         };
     },
     mounted() {
         const footerNavRequests = [
             axios.get('/api/navs/footer/tree'),
-            axios.get('/api/navs/footer_nav_2/tree'),
-            axios.get('/api/navs/footer_nav_3/tree'),
-            axios.get('/api/navs/footer_nav_4/tree'),
             axios.get('/api/globals')
         ];
 
         Promise.all(footerNavRequests)
             .then(responses => {
                 this.footerNav1 = responses[0].data.data;
-                this.footerNav2 = responses[1].data.data;
-                this.footerNav3 = responses[2].data.data;
-                this.footerNav4 = responses[3].data.data;
-
-                const globalsData = responses[4].data.data.find(item => item.handle === 'company');
+                const globalsData = responses[1].data.data.find(item => item.handle === 'company');
 
                 if (globalsData) {
                     if (globalsData.social_media_icons) {
@@ -150,35 +97,41 @@ export default {
     methods: {
         handleSubmit() {
             if (Object.keys(this.validationErrors).length === 0) {
-                this.buttonText = 'Thanks!'; // Change button text to Thanks!
+                this.buttonText = 'Thanks!';
                 axios.post('/!/forms/footer_contact_form', this.formData)
                     .then(response => {
                         console.log('Form submitted successfully', response.data);
                         this.submissionSuccess = true;
-                        this.resetForm(); // Call reset after successful submission
+                        this.resetForm();
                     })
                     .catch(error => {
                         console.error('Error submitting form', error);
                         this.submissionSuccess = false;
                     });
 
-                // Change button text back after 2 seconds
                 setTimeout(() => {
-                    this.buttonText = 'Submit'; // Reset button text
+                    this.buttonText = 'Submit';
                 }, 2000);
             } else {
                 console.log('Form has validation errors', this.validationErrors);
             }
         },
         resetForm() {
-            // Reset form fields and validation errors
-            this.formData.email_address = ''; // Reset only the email field
+            this.formData.email_address = '';
             this.validationErrors = {};
         }
     }
 };
 </script>
 
-<style scoped>
-/* Add any custom styles here */
+
+<style>
+.footer {
+    background-image: linear-gradient(180deg, rgba(37, 55, 94, .65), rgba(37, 55, 94, .65)), url(/images/pattern-dark.svg);
+    background-position: 0 0, 50% 100%;
+    background-size: auto, 400px;
+    background-color: #25375E;
+}
+
 </style>
+
