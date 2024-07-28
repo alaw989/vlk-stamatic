@@ -5,7 +5,7 @@ is_homepage: false
 template: layout
 title: About
 updated_by: 3cde8979-9e2c-4235-8275-1b6545aee897
-updated_at: 1721938336
+updated_at: 1722187769
 assets_field:
   - about-page-background.jpg
 paragraph_section_1:
@@ -48,13 +48,13 @@ heading: 'Elevating stories through expert post-production.'
         </p>
     </div>
     <div class="flex-1 flex">
-        <img src="/assets/post-image.jpeg" class="mb-6 object-cover rounded-md">
+        <img src="/assets/about-page-background.jpg" class="mb-6 object-cover rounded-md">
     </div>
 </div>
 
 <div class="flex flex-col-reverse lg:flex-row justify-center align-center mb-6 lg:mb-[6rem]">
     <div class="flex-1 flex">
-        <img src="/assets/post-image.jpeg" class="mb-6 object-cover rounded-md">
+        <img src="/assets/about-page-background.jpg" class="mb-6 object-cover rounded-md">
     </div>
     <div class="flex-1  lg:pl-[6rem]">
         <h2>Our Why</h2>
@@ -76,13 +76,13 @@ heading: 'Elevating stories through expert post-production.'
         </p>
     </div>
     <div class="flex-1 flex">
-        <img src="/assets/post-image.jpeg" class="mb-6 object-cover rounded-md">
+        <img src="/assets/about-page-background.jpg" class="mb-6 object-cover rounded-md">
     </div>
 </div>
 
 <div class="flex flex-col-reverse lg:flex-row justify-center align-center mb-6 lg:mb-[6rem]">
     <div class="flex-1 flex">
-        <img src="/assets/post-image.jpeg" class="mb-6 object-cover rounded-md">
+        <img src="/assets/about-page-background.jpg" class="mb-6 object-cover rounded-md">
     </div>
     <div class="flex-1  lg:pl-[6rem]">
         <h3>
@@ -108,13 +108,13 @@ heading: 'Elevating stories through expert post-production.'
         </p>
     </div>
     <div class="flex-1 flex">
-        <img src="/assets/post-image.jpeg" class="mb-6 object-cover rounded-md">
+        <img src="/assets/about-page-background.jpg" class="mb-6 object-cover rounded-md">
     </div>
 </div>
 
 <div class="flex flex-col-reverse lg:flex-row justify-center align-center mb-6 lg:mb-[6rem]">
     <div class="flex-1 flex">
-        <img src="/assets/post-image.jpeg" class="mb-6 object-cover rounded-md">
+        <img src="/assets/about-page-background.jpg" class="mb-6 object-cover rounded-md">
     </div>
     <div class="flex-1  lg:pl-[6rem]">
         <h3>
@@ -142,6 +142,6 @@ heading: 'Elevating stories through expert post-production.'
         </p>
     </div>
     <div class="flex-1 flex">
-        <img src="/assets/post-image.jpeg" class="mb-6 object-cover rounded-md">
+        <img src="/assets/about-page-background.jpg" class="mb-6 object-cover rounded-md">
     </div>
 </div>
