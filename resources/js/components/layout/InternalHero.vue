@@ -1,9 +1,7 @@
 <template>
     <div v-if="currentPage && currentPage.assets_field && currentPage.assets_field.length > 0"
-         class="h-[50vh] justify-center relative flex w-full z-[-1]">
-
+         class="internal-hero justify-center relative flex w-full z-[-1]">
         <div class="w-full flex h-full relative z-10">
-
             <!-- Use currentPage.image as the background image URL -->
             <div class="image absolute h-full w-full bg-cover justify-center bg-center right-0 flex"
                  :style="{ backgroundImage: 'url(' + currentPage.assets_field[0].url + ')' }">
@@ -53,6 +51,10 @@ export default {
 </script>
 
 <style scoped>
+.internal-hero {
+    height: calc(50vh);
+    padding-top: 78.9844px;
+}
 .text-container {
     padding-left: 1rem; /* Adjust as needed */
 }

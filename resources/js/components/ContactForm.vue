@@ -1,45 +1,42 @@
 <template>
-    <div v-if="formData" class="w-full flex flex-1 justify-center">
-            <div class="flex-1">
-                <h1 class="text-3xl lg:text-[38px]  mb-6">Contact Us</h1>
-                <form @submit.prevent="handleSubmit">
-                    <div v-for="(field, index) in formData.fields" :key="index" class="mb-4  w-full">
-                        <label class="block mb-1 text-sm required" :for="field.handle">{{ field.display }}</label>
-
-                        <input v-if="field.type === 'text' && field.input_type !== 'email'"
-                               v-model="formData[field.handle]"
-                               :id="field.handle"
-                               required
-                               class="w-full border px-4 py-2 rounded focus:border-blue-500 focus:shadow-outline outline-none"
-                               type="text"/>
-
-                        <input v-if="field.input_type === 'email'"
-                               v-model="formData[field.handle]"
-                               :id="field.handle"
-                               required
-                               @input="validateEmail(field.handle)"
-                               class="w-full border px-4 py-2 rounded focus:border-blue-500 focus:shadow-outline outline-none"
-                               type="email"/>
-
-                        <textarea v-if="field.type === 'textarea'"
-                                  v-model="formData[field.handle]"
-                                  :id="field.handle"
-                                  class="w-full border px-4 py-2 rounded focus:border-blue-500 focus:shadow-outline outline-none"></textarea>
-
-                        <span v-if="validationErrors[field.handle]" class="text-red-500 text-sm">{{ validationErrors[field.handle] }}</span>
-                    </div>
-                    <button type="submit"
-                            class="text-white text-sm md:text-lg px-4 py-2 rounded-full bg-[#3eb488]" :class="submissionSuccess ? 'hidden' : ''">
-                        Submit
-                    </button>
-                </form>
-
-                <!-- Success message -->
-                <div v-if="submissionSuccess" class="mt-4 text-green-600">
-                    Your form has been submitted successfully!
+    <div class="w-full flex flex-1 justify-center p-4 rounded-md shadow-lg bg-[#25375E] h-full">
+        <div class="flex-1 max-w-lg">
+            <form @submit.prevent="handleSubmit" class="bg-[#25375E] p-6 ">
+                <div class="mb-4 w-full">
+                    <label class="block mb-1 text-sm font-semibold text-white" for="name">Name</label>
+                    <input v-model="formData.name" id="name" required
+                           class="w-full border px-4 py-2 rounded focus:border-blue-500 focus:shadow-outline outline-none"
+                           type="text"/>
+                    <span v-if="validationErrors.name" class="text-red-500 text-sm">{{ validationErrors.name }}</span>
                 </div>
-            </div>
 
+                <div class="mb-4 w-full">
+                    <label class="block mb-1 text-sm font-semibold text-white" for="email">Email</label>
+                    <input v-model="formData.email" id="email" required
+                           class="w-full border px-4 py-2 rounded focus:border-blue-500 focus:shadow-outline outline-none"
+                           type="email"/>
+                    <span v-if="validationErrors.email" class="text-red-500 text-sm">{{ validationErrors.email }}</span>
+                </div>
+
+                <div class="mb-4 w-full">
+                    <label class="block mb-1 text-sm font-semibold text-white" for="message">Message</label>
+                    <textarea v-model="formData.message" id="message" required
+                              class="w-full border px-4 py-2 rounded focus:border-blue-500 focus:shadow-outline outline-none"></textarea>
+                    <span v-if="validationErrors.message" class="text-red-500 text-sm">{{ validationErrors.message }}</span>
+                </div>
+
+                <button type="submit"
+                        class="w-full text-white text-sm md:text-lg px-4 py-2 rounded-full bg-[#3eb488] hover:bg-[#34a06f] transition duration-300"
+                        :class="submissionSuccess ? 'hidden' : ''">
+                    Submit
+                </button>
+            </form>
+
+            <!-- Success message -->
+            <div v-if="submissionSuccess" class="mt-4 text-green-600 text-center">
+                Your message has been sent successfully!
+            </div>
+        </div>
     </div>
 </template>
 
@@ -47,49 +44,38 @@
 import axios from "axios";
 
 export default {
-    name: "SectionContact",
+    name: "ContactForm",
     data() {
         return {
-            formData: {},
-            currentPage: {},
+            formData: {
+                name: '',
+                email: '',
+                message: ''
+            },
             validationErrors: {},
             submissionSuccess: false,
         };
     },
-    mounted() {
-        axios.get('/api/forms/contact_form')
-            .then(response => {
-                if (response.data.data) {
-                    this.formData = response.data.data;
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching form', error);
-            });
-
-        axios.get('/api/collections/pages/entries/')
-            .then(response => {
-                this.pages = response.data.data;
-                this.currentPage = this.pages.find(page => page.uri === this.$route.path) || null;
-            })
-            .catch(error => {
-                console.error('Error fetching pages', error);
-            });
-    },
     methods: {
-        validateEmail(fieldHandle) {
-            const email = this.formData[fieldHandle];
-            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format validation
-            this.validationErrors = {}
-
-            if (!regex.test(email)) {
-                this.validationErrors[fieldHandle] = 'Please enter a valid email address.';
-            }
-        },
         handleSubmit() {
+            this.validationErrors = {}; // Clear previous validation errors
+
+            // Basic validation
+            if (!this.formData.name) {
+                this.validationErrors.name = 'Name is required.';
+            }
+            if (!this.formData.email) {
+                this.validationErrors.email = 'Email is required.';
+            } else if (!this.validateEmail(this.formData.email)) {
+                this.validationErrors.email = 'Please enter a valid email address.';
+            }
+            if (!this.formData.message) {
+                this.validationErrors.message = 'Message is required.';
+            }
+
             if (Object.keys(this.validationErrors).length === 0) {
-                this.buttonText = 'Thanks!';
-                axios.post('/!/forms/contact_form', this.formData)
+                // Send form data to server
+                axios.post('/contact/submit', this.formData)
                     .then(response => {
                         console.log('Form submitted successfully', response.data);
                         this.submissionSuccess = true; // Set success state
@@ -97,20 +83,22 @@ export default {
                     })
                     .catch(error => {
                         console.error('Error submitting form', error);
-                        this.submissionSuccess = false; // Reset success state on error
                     });
-
-                // Change button text back after 2 seconds
-                setTimeout(() => {
-                    this.buttonText = 'Submit'; // Reset button text
-                }, 2000);
             } else {
                 console.log('Form has validation errors', this.validationErrors);
             }
         },
+        validateEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        },
         resetForm() {
             // Reset form fields and validation errors
-            this.formData = {};
+            this.formData = {
+                name: '',
+                email: '',
+                message: ''
+            };
             this.validationErrors = {};
         }
     }
@@ -118,5 +106,7 @@ export default {
 </script>
 
 <style scoped>
-/* Your custom styles here */
+/* Use this section if you have additional custom styles */
+/* No additional styles are defined here since we are using inline Tailwind CSS classes */
 </style>
+

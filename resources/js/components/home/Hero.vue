@@ -78,7 +78,7 @@ export default {
 
 <style lang="scss" scoped>
 .hero {
-    height: calc(100vh - 78.9844px);
+    height: 100vh;
 }
 
 .parallax-container {

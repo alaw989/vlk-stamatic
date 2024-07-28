@@ -3,14 +3,12 @@
         <Header/>
         <!-- Use v-if to conditionally render InternalHero -->
         <InternalHero :currentPage="currentPage"/>
-
-        <div class="my-[6rem] justify-center relative flex w-full relative z-0">
-            <div class="w-full max-w-[75%] flex flex-col md:flex-row h-full relative z-10">
+        <div class=" justify-center relative flex w-full relative z-0">
+            <div class=" my-[12rem] w-full max-w-[75%] flex flex-col md:flex-row h-full relative z-10">
                 <div class="flex flex-col flex-1 md:pr-[6rem]" v-html="currentPage?.content"></div>
                 <ContactForm/>
             </div>
         </div>
-
         <Clients/>
         <div class="relative">
             <Testimonials :home="page"/>

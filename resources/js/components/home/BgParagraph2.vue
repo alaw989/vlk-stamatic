@@ -10,7 +10,7 @@
                 <div class="flex justify-center flex-col items-center text-center w-full max-w-[75%]">
                     <h1 v-html="home.paragraph_section_2?.heading" class="text-2xl md:text-4xl text-white font-bold mb-4 lg:mb-[2rem]"></h1>
                     <p class="text-white text-center max-w-[800px] m-0" v-html="home.paragraph_section_2?.body"></p>
-                    <a :href="home.paragraph_section_2?.link_url" v-if="home.paragraph_section_2?.link_url" class=" mt-4 lg:mt-6 hover:no-underline">
+                    <a :href="home.paragraph_section_2?.link_url" target="_blank" v-if="home.paragraph_section_2?.link_url" class=" mt-4 lg:mt-6 hover:no-underline">
                         <button class=" lg:block text-center cursor-pointer border-2 w-[160px] py-2 rounded-full
           bg-[#3eb488] border-[#3eb488] text-[#fff] font-bold transition-colors duration-300
           hover:bg-white hover:text-[#3eb488] hover:border-[#3eb488] hover:no-underline">

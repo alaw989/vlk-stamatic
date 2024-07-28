@@ -4,8 +4,8 @@
         <!-- Use v-if to conditionally render InternalHero -->
         <InternalHero v-if="currentPage && $route.path !== '/contact'" :currentPage="currentPage"/>
 
-        <div class="my-[6rem] justify-center relative flex w-full relative">
-            <div class="max-w-[75%] flex flex-col-reverse lg:flex-row">
+        <div class=" justify-center relative flex w-full relative">
+            <div class=" my-[12rem] max-w-[75%] flex flex-col-reverse lg:flex-row">
                 <Accordion  />
                 <div class="flex items-start lg:h-full w-full relative" v-if="currentPage"
                      v-html="currentPage.content">

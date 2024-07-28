@@ -4,10 +4,10 @@
             <Header :globals="globals"/>
             <Hero :home="page"/>
         </div>
-        <div class="relative ">
+        <div class="relative">
             <BgParagraph :home="page"/>
         </div>
-        <div class="relative bg-[#25375E] py-[6rem]">
+        <div class="relative bg-[#25375E]">
             <InfoSquares :home="page"/>
         </div>
         <div class="relative">

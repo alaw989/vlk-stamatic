@@ -1,5 +1,5 @@
 <template>
-    <div v-if="home" class="w-full flex justify-center info-squares">
+    <div v-if="home" class="w-full flex justify-center info-squares  py-[6rem]">
         <div class="w-full max-w-[75%]">
             <div class="flex justify-center flex-col items-center relative">
                 <h1 class="text-2xl md:text-4xl text-black font-bold text-center mb-4 lg:mb-[2rem] text-white">What We Do</h1>

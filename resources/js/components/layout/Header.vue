@@ -1,13 +1,13 @@
 <template>
-    <header class="flex justify-center py-4 z-1 z-10 relative"
-            :style="{ backgroundColor: '#fff'  }"
+    <header class="fixed flex justify-center py-4 z-10 w-full shadow-lg"
+            :style="{ backgroundColor: '#fff' }"
             @mouseover="hover = true" @mouseleave="hover = false">
         <div class="w-full max-w-[75%]">
             <div class="flex items-center justify-between h-full">
                 <div class="mr-6">
                     <!-- Use router-link instead of anchor tag -->
                     <router-link :to="{ name: 'home' }">
-                        <img class="max-w-[150px] lg:max-w-[200px]  cursor-pointer" :src="imageUrl"
+                        <img class="max-w-[150px] lg:max-w-[200px] cursor-pointer" :src="imageUrl"
                              alt="Logo">
                     </router-link>
                 </div>

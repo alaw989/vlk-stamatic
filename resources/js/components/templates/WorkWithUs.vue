@@ -2,12 +2,15 @@
     <div>
         <Header/>
         <!-- Use v-if to conditionally render InternalHero -->
-        <InternalHero v-if="currentPage" :currentPage="currentPage"/>
-        <div class="justify-center relative flex w-full relative z-[-1]">
-            <div class="my-[12rem] w-full max-w-[75%] flex items-center h-full relative z-10 flex-col" v-if="currentPage"
-                 v-html="currentPage.content">
+        <InternalHero :currentPage="currentPage"/>
+
+        <div class=" justify-center relative flex w-full relative z-0">
+            <div class=" my-[12rem] w-full max-w-[75%] flex flex-col md:flex-row h-full relative z-10">
+                <div class="flex flex-col flex-1 md:pr-[6rem]" v-html="currentPage?.content"></div>
+                <EmploymentForm/>
             </div>
         </div>
+
         <Clients/>
         <div class="relative">
             <Testimonials :home="page"/>
@@ -20,18 +23,18 @@
 import Header from "../layout/Header.vue";
 import Footer from "../layout/Footer.vue";
 import Clients from "../layout/Clients.vue";
-import Contact from "../ContactForm.vue";
 import InternalHero from "../layout/InternalHero.vue";
 import axios from "axios";
 import Testimonials from "../layout/Testimonials.vue";
 import Accordion from "../layout/Accordion.vue";
+import EmploymentForm from "../EmploymentForm.vue";
 
 export default {
     components: {
         Clients,
         Header,
         Footer,
-        Contact,
+        EmploymentForm,
         InternalHero,
         Testimonials,
         Accordion // Register the Accordion component
@@ -78,4 +81,9 @@ export default {
 </script>
 
 <style scoped>
+
+
+
+
 </style>
+
