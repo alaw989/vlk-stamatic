@@ -3,7 +3,7 @@
         <Header/>
         <!-- Use v-if to conditionally render InternalHero -->
         <InternalHero v-if="currentPage" :currentPage="currentPage"/>
-        <div class="justify-center relative flex w-full relative z-[-1]">
+        <div class="justify-center relative flex w-full relative z-[1]">
             <div class="my-[12rem] w-full max-w-[75%] flex items-center h-full relative z-10 flex-col" v-if="currentPage"
                  v-html="currentPage.content">
             </div>
