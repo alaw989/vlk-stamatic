@@ -1,5 +1,5 @@
 <template>
-    <header :class="{'slide-up': scrollingDown, 'slide-down': scrollingUp}" class="fixed flex justify-center py-4 z-10 w-full shadow-lg"
+    <header :class="{'slide-up': scrollingDown && isMediumScreen, 'slide-down': scrollingUp && isMediumScreen}" class="fixed flex justify-center py-4 z-10 w-full shadow-lg"
             :style="{ backgroundColor: '#fff' }"
             @mouseover="hover = true" @mouseleave="hover = false">
         <div class="w-full max-w-[90%] md:max-w-[75%]">
@@ -68,7 +68,8 @@ export default {
             socialMediaIcons: '',
             lastScrollTop: 0,
             scrollingDown: false,
-            scrollingUp: false
+            scrollingUp: false,
+            isMediumScreen: window.innerWidth >= 768
         };
     },
     components: {
@@ -102,9 +103,11 @@ export default {
             });
 
         window.addEventListener('scroll', this.handleScroll);
+        window.addEventListener('resize', this.handleResize);
     },
     beforeDestroy() {
         window.removeEventListener('scroll', this.handleScroll);
+        window.removeEventListener('resize', this.handleResize);
     },
     methods: {
         handleScroll() {
@@ -119,6 +122,9 @@ export default {
                 this.scrollingUp = true;
             }
             this.lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // For Mobile or negative scrolling
+        },
+        handleResize() {
+            this.isMediumScreen = window.innerWidth >= 768;
         }
     }
 };
@@ -181,4 +187,3 @@ header {
     }
 }
 </style>
-
