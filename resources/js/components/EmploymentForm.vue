@@ -1,7 +1,7 @@
 <template>
-    <div v-if="formData" class="w-full flex flex-1 justify-center p-4 bg-[#25375E] rounded-md shadow-lg">
-        <div class="flex-1 max-w-lg">
-            <form @submit.prevent="handleSubmit" enctype="multipart/form-data" class="bg-[#25375E] p-6 ">
+    <div v-if="formData" class="w-full flex flex-1 justify-center">
+        <div class="flex-1 max-w-xl">
+            <form @submit.prevent="handleSubmit" enctype="multipart/form-data" class="bg-[#25375E] p-8 rounded-md">
                 <div v-for="(field, index) in formData.fields" :key="index" class="mb-4 w-full">
                     <label class="block mb-1 text-sm font-semibold text-white" :for="field.handle">{{ field.display }}</label>
 

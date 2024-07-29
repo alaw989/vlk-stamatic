@@ -3,7 +3,7 @@
          :class="route.path !== '/' ? 'bg-[#3EB488]' : 'bg-[#fff]'">
         <div class="w-full">
             <div class="w-full flex justify-center">
-                <div class="flex justify-center flex-col items-center text-center w-full max-w-[90%] md:max-w-[75%]">
+                <div class="flex justify-center flex-col items-center text-center w-full  md:max-w-[75%]">
                     <h1 class="mb-4 lg:mb-[2rem] text-2xl md:text-4xl font-bold text-black m-0"
                         :class="route.path !== '/' ? 'text-white' : 'text-black'">Our Partners</h1>
                     <carousel :breakpoints="breakpoints" :wrap-around="true"  :autoplay="3000" :items-to-show="2">

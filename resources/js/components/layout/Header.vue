@@ -1,8 +1,8 @@
 <template>
-    <header class="fixed flex justify-center py-4 z-10 w-full shadow-lg"
+    <header :class="{'slide-up': scrollingDown, 'slide-down': scrollingUp}" class="fixed flex justify-center py-4 z-10 w-full shadow-lg"
             :style="{ backgroundColor: '#fff' }"
             @mouseover="hover = true" @mouseleave="hover = false">
-        <div class="w-full max-w-[75%]">
+        <div class="w-full max-w-[90%] md:max-w-[75%]">
             <div class="flex items-center justify-between h-full">
                 <div class="mr-6">
                     <!-- Use router-link instead of anchor tag -->
@@ -55,7 +55,7 @@
 
 <script>
 import axios from "axios";
-import {Slide} from 'vue3-burger-menu';
+import { Slide } from 'vue3-burger-menu';
 
 export default {
     name: "Header",
@@ -65,7 +65,10 @@ export default {
             hover: false,
             imageUrl: '',
             whiteImageUrl: '',
-            socialMediaIcons: ''
+            socialMediaIcons: '',
+            lastScrollTop: 0,
+            scrollingDown: false,
+            scrollingUp: false
         };
     },
     components: {
@@ -97,7 +100,27 @@ export default {
             .catch(error => {
                 console.error('Error fetching globals', error);
             });
+
+        window.addEventListener('scroll', this.handleScroll);
     },
+    beforeDestroy() {
+        window.removeEventListener('scroll', this.handleScroll);
+    },
+    methods: {
+        handleScroll() {
+            const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScrollTop > this.lastScrollTop) {
+                // Scrolling down
+                this.scrollingDown = true;
+                this.scrollingUp = false;
+            } else {
+                // Scrolling up
+                this.scrollingDown = false;
+                this.scrollingUp = true;
+            }
+            this.lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // For Mobile or negative scrolling
+        }
+    }
 };
 </script>
 
@@ -131,6 +154,15 @@ export default {
 
 header {
     background-color: white;
+    transition: transform 0.3s ease-in-out;
+
+    &.slide-up {
+        transform: translateY(-100%);
+    }
+
+    &.slide-down {
+        transform: translateY(0);
+    }
 
     &:hover {
         background-color: #f0f0f0;
@@ -143,10 +175,10 @@ header {
     }
 }
 
-
 .social {
     svg {
         fill: #25375E;
     }
 }
 </style>
+

@@ -1,7 +1,8 @@
 <template>
-    <div class="w-full flex flex-1 justify-center p-4 rounded-md shadow-lg bg-[#25375E] h-full">
-        <div class="flex-1 max-w-lg">
-            <form @submit.prevent="handleSubmit" class="bg-[#25375E] p-6 ">
+    <div class="w-full flex flex-1 justify-center h-full">
+        <div class="flex-1 max-w-xl">
+            <h1>Contact Us!</h1>
+            <form @submit.prevent="handleSubmit" class="bg-[#25375E] p-8 rounded-md">
                 <div v-if="!submissionSuccess">
                     <div class="mb-4 w-full">
                         <label class="block mb-1 text-sm font-semibold text-white" for="first_name">First Name</label>
