@@ -1,6 +1,6 @@
 <template>
     <div v-if="clients" class="parallax-container relative py-[6rem]"
-         :class="route.path !== '/' ? 'bg-[#f0f0f0]' : 'bg-[#fff]'">
+         :class="route.path !== '/' ? 'bg-[#f0f0f0]' : 'bg-[#fff]'" >
         <div class="w-full">
             <div class="w-full flex justify-center">
                 <div class="flex justify-center flex-col items-center text-center w-full  md:max-w-[75%]">
