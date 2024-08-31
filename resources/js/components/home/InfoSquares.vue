@@ -1,5 +1,5 @@
 <template>
-    <div v-if="home" class="w-full flex justify-center info-squares  py-[6rem]">
+    <div v-if="home" class="w-full flex justify-center info-squares py-[6rem]">
         <div class="w-full max-w-[75%]">
             <div class="flex justify-center flex-col items-center relative">
                 <h1 class="text-2xl md:text-4xl text-black font-bold text-center mb-4 lg:mb-[2rem] text-white">What We Do</h1>
@@ -8,7 +8,9 @@
                         <li v-for="(service, index) in services" :key="service.id"
                             class="flex flex-col justify-between items-center mb-4">
                             <a :href="service?.services_link" class="no-underline flex flex-col items-center" @click="handleClick(service, index)">
-                                <img :src="service?.services_icon[0].url" :alt="service.title"
+                                <img v-if="service?.services_icon?.length > 0"
+                                     :src="service.services_icon[0].url"
+                                     :alt="service.title"
                                      class="w-20 h-20 mb-2 transform transition-transform duration-300 hover:scale-110">
                                 <span class="text-xl text-center text-white">{{ service.title }}</span>
                             </a>
