@@ -1,11 +1,11 @@
 <template>
     <div v-if="clients" class="parallax-container relative py-[6rem]"
-         :class="route.path !== '/' ? 'bg-[#3EB488]' : 'bg-[#fff]'">
+         :class="route.path !== '/' ? 'bg-[#f0f0f0]' : 'bg-[#fff]'">
         <div class="w-full">
             <div class="w-full flex justify-center">
                 <div class="flex justify-center flex-col items-center text-center w-full  md:max-w-[75%]">
-                    <h1 class="mb-4 lg:mb-[2rem] text-2xl md:text-4xl font-bold text-black m-0"
-                        :class="route.path !== '/' ? 'text-white' : 'text-black'">Our Partners</h1>
+                    <h1 class="mb-4 lg:mb-[2rem] text-2xl md:text-4xl font-bold"
+                        :class="route.path !== '/' ? 'text-black' : 'text-black'">Our Partners</h1>
                     <carousel :breakpoints="breakpoints" :wrap-around="true"  :autoplay="3000" :items-to-show="2">
                         <slide v-for="item in clients" :key="item.id">
                             <a target="_blank" :href="item.partner_link">
