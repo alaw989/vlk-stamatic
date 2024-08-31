@@ -4,5 +4,7 @@ blueprint: partner
 title: 'Soul Train'
 partner_title: 'Soul Train'
 updated_by: 3cde8979-9e2c-4235-8275-1b6545aee897
-updated_at: 1725120563
+updated_at: 1725123508
+partner_image:
+  - logos/partners/transparent_soul_train_awards.png
 ---

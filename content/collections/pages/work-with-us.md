@@ -16,8 +16,8 @@ paragraph_section_2:
   link_text: null
   link_url: null
 updated_by: 3cde8979-9e2c-4235-8275-1b6545aee897
-updated_at: 1722181571
+updated_at: 1725124343
 parent: home
 ---
-<h1>Work With Us</h1>
-   <img src="/assets/post-image.jpeg" class="mb-6 object-cover rounded-md">
+<h1>Work With Us!</h1>
+   <img src="/assets/workwithus.webp" class="mb-6 object-cover rounded-md">
